@@ -2916,3 +2916,62 @@ button {
     transform: none !important;
   }
 }
+
+
+/* =========================================================
+   Mobile View Custom Adjustments
+   1. Hamburger toggle color is always #ffffff
+   2. Hide 'Why Rukoob' (4 squares grid) in mobile view
+   3. Driver section photo stays as background bleed on left
+   ========================================================= */
+
+.mobile-toggle span {
+  background-color: #ffffff !important;
+}
+
+.site-header:not(.scrolled) .mobile-toggle span,
+.site-header.scrolled .mobile-toggle span,
+.nav-pill-wrapper:has(.nav-container.mobile-open) .mobile-toggle span {
+  background-color: #ffffff !important;
+}
+
+@media (max-width: 768px) {
+  /* Hide the 4 squares section (Why Rukoob) on mobile */
+  .why-rukoob-section,
+  #why {
+    display: none !important;
+  }
+
+  /* Driver section photo on the left as background bleed */
+  .driver-section {
+    position: relative !important;
+    overflow: hidden !important;
+    padding: 70px 0 90px !important;
+    background-color: var(--bg-sand-warm) !important;
+  }
+
+  .driver-bleed-bg {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    bottom: 0 !important;
+    width: 48% !important;
+    height: 100% !important;
+    margin-bottom: 0 !important;
+    background-image: url('assets/aswan-car-nile.png') !important;
+    background-position: left center !important;
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
+    mask-image: linear-gradient(to right, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0) 100%) !important;
+    -webkit-mask-image: linear-gradient(to right, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0) 100%) !important;
+    opacity: 0.55 !important;
+    z-index: 1 !important;
+    pointer-events: none !important;
+  }
+
+  .driver-content-wrapper {
+    position: relative !important;
+    z-index: 2 !important;
+    margin-left: 0 !important;
+  }
+}
