@@ -71,38 +71,53 @@ document.addEventListener('DOMContentLoaded', () => {
 
   revealElements.forEach((el) => revealObserver.observe(el));
 
-  // 4. QR Code Dynamic Generation
+  // 4. QR Code Dynamic Generation & Smart Device Detection
   let qrCodeGenerated = false;
+  function getDeviceOS() {
+    const ua = navigator.userAgent || navigator.vendor || window.opera || '';
+    if (/android/i.test(ua)) return 'android';
+    if (/iPad|iPhone|iPod/.test(ua) && !window.MSStream) return 'ios';
+    return 'desktop';
+  }
+
   function initQrCode() {
     const qrContainer = document.getElementById('rukoobQrCode');
-    if (!qrContainer || qrCodeGenerated) return;
+    if (!qrContainer) return;
 
-    // Calculate smart download URL
-    const baseUrl = window.location.href.split('?')[0].split('#')[0].replace(/index.html$/i, '').replace(/\/+$/, '');
-    const downloadUrl = baseUrl || window.location.origin || window.location.href;
+    // Calculate smart download URL pointing to download.html
+    const origin = window.location.origin || '';
+    let pathname = window.location.pathname || '';
+    pathname = pathname.replace(/index\.html$/i, '').replace(/\/+$/, '');
+    const downloadUrl = (origin + pathname + '/download.html').replace(/([^:])\/\//g, '$1/');
 
     qrContainer.innerHTML = '';
     if (typeof QRCode !== 'undefined') {
-      new QRCode(qrContainer, {
-        text: downloadUrl,
-        width: 140,
-        height: 140,
-        colorDark: '#1B2A41',
-        colorLight: '#ffffff',
-        correctLevel: QRCode.CorrectLevel.M,
-      });
-      qrCodeGenerated = true;
-    } else {
-      // Fallback to high-res dynamic QR API
-      const img = document.createElement('img');
-      img.src = 'https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=' + encodeURIComponent(downloadUrl) + '&color=1B2A41&bgcolor=ffffff&margin=1';
-      img.alt = 'QR Code لتحميل تطبيق رُكوب';
-      img.style.width = '140px';
-      img.style.height = '140px';
-      img.style.borderRadius = '10px';
-      qrContainer.appendChild(img);
-      qrCodeGenerated = true;
+      try {
+        new QRCode(qrContainer, {
+          text: downloadUrl,
+          width: 160,
+          height: 160,
+          colorDark: '#16222d',
+          colorLight: '#ffffff',
+          correctLevel: QRCode.CorrectLevel.H,
+        });
+        qrCodeGenerated = true;
+        return;
+      } catch (err) {
+        console.warn('QRCode library error, using fallback API:', err);
+      }
     }
+
+    // Fallback to high-res dynamic QR API
+    const img = document.createElement('img');
+    img.src = 'https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=' + encodeURIComponent(downloadUrl) + '&color=16222d&bgcolor=ffffff&margin=1';
+    img.alt = 'QR Code تحميل تطبيق رُكوب';
+    img.style.width = '160px';
+    img.style.height = '160px';
+    img.style.borderRadius = '12px';
+    img.style.display = 'block';
+    qrContainer.appendChild(img);
+    qrCodeGenerated = true;
   }
 
   // 5. Modals Handling (App Download & Driver Registration)
@@ -115,8 +130,25 @@ document.addEventListener('DOMContentLoaded', () => {
   openDownloadBtns.forEach((btn) => {
     btn.addEventListener('click', (e) => {
       e.preventDefault();
+      const os = getDeviceOS();
+      
+      // Open modal
       appDownloadModal?.classList.add('active');
       initQrCode();
+
+      // Highlight active OS button inside modal
+      const modal = document.getElementById('appDownloadModal');
+      if (modal) {
+        const androidBtn = modal.querySelector('a[download]');
+        const iosBtn = modal.querySelector('a[href*="ios"]');
+        if (os === 'android' && androidBtn) {
+          androidBtn.style.transform = 'scale(1.03)';
+          androidBtn.style.boxShadow = '0 0 0 3px #5f6939, 0 10px 20px rgba(95, 105, 57, 0.4)';
+        } else if (os === 'ios' && iosBtn) {
+          iosBtn.style.transform = 'scale(1.03)';
+          iosBtn.style.boxShadow = '0 0 0 3px #5f6939, 0 10px 20px rgba(22, 34, 45, 0.4)';
+        }
+      }
     });
   });
 

@@ -1,0 +1,453 @@
+﻿<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>تحميل تطبيق رُكوب | RUKOOB Download</title>
+  <meta name="description" content="حمّل تطبيق رُكوب (RUKOOB) لهواتف أندرويد وآيفون - منصة النقل الذكي الأولى في أسوان." />
+  <link rel="icon" type="image/png" href="assets/rukoob-logo.png" />
+  <link rel="apple-touch-icon" href="assets/rukoob-logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --primary: #5f6939;
+      --primary-dark: #434c24;
+      --primary-light: #7b8849;
+      --navy: #16222d;
+      --dark-navy: #08111a;
+      --cream: #f7f3ea;
+      --surface: #ffffff;
+      --text-main: #16222d;
+      --text-muted: #64748b;
+      --border: #e2e8f0;
+      --gold: #d4a373;
+      --gold-light: #e4dec8;
+      --radius: 18px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Cairo', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: linear-gradient(135deg, #08111a 0%, #16222d 50%, #203142 100%);
+      color: #ffffff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px 16px;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* Ambient background glows */
+    .bg-glow {
+      position: absolute;
+      width: 380px;
+      height: 380px;
+      border-radius: 50%;
+      filter: blur(90px);
+      opacity: 0.25;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .glow-1 { top: -60px; right: -60px; background: #5f6939; }
+    .glow-2 { bottom: -60px; left: -60px; background: #d4a373; }
+
+    .download-card {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      max-width: 500px;
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 26px;
+      padding: 32px 24px;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+      text-align: center;
+    }
+
+    .brand-header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    .brand-logo-img {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
+    }
+
+    .brand-text h1 {
+      font-size: 26px;
+      font-weight: 900;
+      color: #ffffff;
+      line-height: 1.1;
+      text-align: right;
+    }
+
+    .brand-text span {
+      font-family: 'Outfit', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      color: var(--gold-light);
+      display: block;
+      text-align: right;
+    }
+
+    /* Badge */
+    .os-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(95, 105, 57, 0.25);
+      border: 1px solid rgba(95, 105, 57, 0.6);
+      color: #d8e4a7;
+      padding: 6px 16px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 800;
+      margin-bottom: 18px;
+    }
+
+    .status-title {
+      font-size: 22px;
+      font-weight: 900;
+      color: #ffffff;
+      margin-bottom: 10px;
+      line-height: 1.3;
+    }
+
+    .status-desc {
+      font-size: 14px;
+      color: #cbd5e1;
+      line-height: 1.6;
+      margin-bottom: 24px;
+    }
+
+    /* Buttons */
+    .btn-main-download {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: 100%;
+      background: linear-gradient(135deg, #5f6939 0%, #434c24 100%);
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 17px;
+      font-weight: 800;
+      padding: 16px 20px;
+      border-radius: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 10px 24px rgba(95, 105, 57, 0.4);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      margin-bottom: 14px;
+    }
+
+    .btn-main-download:hover, .btn-main-download:active {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 28px rgba(95, 105, 57, 0.55);
+      background: linear-gradient(135deg, #6e7a42 0%, #4f5a2b 100%);
+    }
+
+    .btn-secondary {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.08);
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 700;
+      padding: 12px 18px;
+      border-radius: 14px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      transition: all 0.2s ease;
+      margin-bottom: 18px;
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.15);
+    }
+
+    /* Installation Steps Box */
+    .guide-box {
+      background: rgba(0, 0, 0, 0.25);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 18px;
+      padding: 18px;
+      text-align: right;
+      margin-top: 18px;
+    }
+
+    .guide-title {
+      font-size: 14px;
+      font-weight: 800;
+      color: var(--gold-light);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .guide-step {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin-bottom: 10px;
+      font-size: 13px;
+      color: #e2e8f0;
+      line-height: 1.5;
+    }
+
+    .guide-step:last-child {
+      margin-bottom: 0;
+    }
+
+    .step-num {
+      background: var(--primary);
+      color: #ffffff;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 800;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    /* Pulse animation for downloading */
+    .pulse-icon {
+      animation: bouncePulse 1.8s infinite ease-in-out;
+    }
+
+    @keyframes bouncePulse {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(6px); }
+    }
+
+    /* Desktop QR Container */
+    .qr-desktop-wrap {
+      background: #ffffff;
+      padding: 14px;
+      border-radius: 18px;
+      display: inline-block;
+      margin: 14px auto;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    }
+
+    .qr-desktop-wrap img {
+      width: 180px;
+      height: 180px;
+      display: block;
+      border-radius: 8px;
+    }
+
+    .back-home {
+      display: inline-block;
+      margin-top: 20px;
+      color: #94a3b8;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 700;
+      transition: color 0.2s;
+    }
+    .back-home:hover {
+      color: #ffffff;
+    }
+  </style>
+</head>
+<body>
+  <div class="bg-glow glow-1"></div>
+  <div class="bg-glow glow-2"></div>
+
+  <div class="download-card">
+    <!-- Brand Header -->
+    <div class="brand-header">
+      <img src="assets/rukoob-logo.png" alt="شعار رُكوب RUKOOB" class="brand-logo-img" />
+      <div class="brand-text">
+        <h1>رُكوب</h1>
+        <span>RUKOOB ASWAN</span>
+      </div>
+    </div>
+
+    <!-- Dynamic Container based on OS -->
+    <div id="dynamicContent">
+      <div class="os-badge">
+        <span class="pulse-icon">⏳</span>
+        <span>جاري تهيئة التحميل...</span>
+      </div>
+      <h2 class="status-title">تحميل تطبيق رُكوب</h2>
+      <p class="status-desc">يرجى الانتظار ثوانٍ قليلة لتحديد أنسب نسخة لهاتفك...</p>
+    </div>
+
+    <a href="index.html" class="back-home">← العودة إلى الموقع الرئيسي</a>
+  </div>
+
+  <script>
+    (function() {
+      function detectDevice() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const forceOS = urlParams.get('os');
+        if (forceOS === 'android') return 'android';
+        if (forceOS === 'ios') return 'ios';
+
+        const ua = navigator.userAgent || navigator.vendor || window.opera || '';
+        if (/android/i.test(ua)) return 'android';
+        if (/iPad|iPhone|iPod/.test(ua) && !window.MSStream) return 'ios';
+        return 'desktop';
+      }
+
+      const os = detectDevice();
+      const container = document.getElementById('dynamicContent');
+      const apkUrl = 'assets/app-release.apk';
+      const webAppUrl = 'app/index.html';
+
+      if (os === 'android') {
+        container.innerHTML = `
+          <div class="os-badge">
+            <span>🤖</span>
+            <span>نسخة أندرويد (Android APK)</span>
+          </div>
+          <h2 class="status-title">جاري تحميل تطبيق رُكوب... 🚀</h2>
+          <p class="status-desc">
+            سيبدأ تنزيل ملف التطبيق (APK) تلقائياً على هاتفك الآن.
+          </p>
+
+          <a href="${apkUrl}" download="rukoob.apk" id="directDownloadBtn" class="btn-main-download">
+            <svg class="pulse-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 3v13M6 11l6 6 6-6M4 20h16"/>
+            </svg>
+            <span>تحميل ملف APK الآن</span>
+          </a>
+
+          <a href="${webAppUrl}" class="btn-secondary">
+            <span>أو تشغيل التطبيق الفوري (Web App) بدون تحميل ←</span>
+          </a>
+
+          <div class="guide-box">
+            <div class="guide-title">
+              <span>💡</span>
+              <span>خطوات التثبيت السريع:</span>
+            </div>
+            <div class="guide-step">
+              <span class="step-num">1</span>
+              <span>افتح ملف <strong>rukoob.apk</strong> من قائمة التحميلات أو الإشعارات.</span>
+            </div>
+            <div class="guide-step">
+              <span class="step-num">2</span>
+              <span>إذا ظهر تنبيه الأمان، اضغط على <strong>"الإعدادات"</strong> ثم فعّل <strong>"السماح بتثبيت التطبيقات من هذا المصدر"</strong>.</span>
+            </div>
+            <div class="guide-step">
+              <span class="step-num">3</span>
+              <span>اضغط <strong>"تثبيت" (Install)</strong> وافتح التطبيق للانطلاق في أسوان!</span>
+            </div>
+          </div>
+        `;
+
+        // Trigger download automatically after 600ms
+        setTimeout(() => {
+          const dlLink = document.createElement('a');
+          dlLink.href = apkUrl;
+          dlLink.download = 'rukoob.apk';
+          document.body.appendChild(dlLink);
+          dlLink.click();
+          document.body.removeChild(dlLink);
+        }, 600);
+
+      } else if (os === 'ios') {
+        container.innerHTML = `
+          <div class="os-badge">
+            <span>🍏</span>
+            <span>نسخة الآيفون (iOS)</span>
+          </div>
+          <h2 class="status-title">مرحباً بك في رُكوب على آيفون! ✨</h2>
+          <p class="status-desc">
+            تطبيق رُكوب متاح فورياً لهواتف آيفون بتقنية الويب المتقدمة (PWA) بدون الحاجة لانتظار المتجر.
+          </p>
+
+          <a href="${webAppUrl}" class="btn-main-download">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/>
+            </svg>
+            <span>فتح تطبيق رُكوب الفوري الآن</span>
+          </a>
+
+          <div class="guide-box">
+            <div class="guide-title">
+              <span>📲</span>
+              <span>لتثبيت التطبيق على شاشة الآيفون كأيقونة:</span>
+            </div>
+            <div class="guide-step">
+              <span class="step-num">1</span>
+              <span>افتح الرابط في متصفح <strong>Safari</strong>.</span>
+            </div>
+            <div class="guide-step">
+              <span class="step-num">2</span>
+              <span>اضغط على زر <strong>المشاركة (Share ⎋)</strong> أسفل الشاشة.</span>
+            </div>
+            <div class="guide-step">
+              <span class="step-num">3</span>
+              <span>مرر للأسفل واختر <strong>"إضافة إلى الشاشة الرئيسية" (Add to Home Screen ➕)</strong>.</span>
+            </div>
+            <div class="guide-step">
+              <span class="step-num">4</span>
+              <span>اضغط <strong>"إضافة" (Add)</strong> وسيصبح تطبيق رُكوب جاهزاً على شاشتك!</span>
+            </div>
+          </div>
+        `;
+      } else {
+        // Desktop
+        const qrTargetUrl = window.location.href;
+        const qrApi = 'https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=' + encodeURIComponent(qrTargetUrl) + '&color=16222d&bgcolor=ffffff&margin=1';
+
+        container.innerHTML = `
+          <div class="os-badge">
+            <span>💻</span>
+            <span>نسخة أجهزة الكمبيوتر والموبايل</span>
+          </div>
+          <h2 class="status-title">حمّل رُكوب على هاتفك</h2>
+          <p class="status-desc">
+            امسح كود الـ QR بكاميرا هاتفك للتحميل المباشر حسب نوع جهازك (Android أو iOS):
+          </p>
+
+          <div class="qr-desktop-wrap">
+            <img src="${qrApi}" alt="QR Code تحميل رُكوب" />
+          </div>
+
+          <div style="display: flex; gap: 10px; margin-top: 14px;">
+            <a href="${apkUrl}" download="rukoob.apk" class="btn-main-download" style="flex: 1; font-size: 14px; padding: 12px 10px;">
+              <span>تحميل APK (أندرويد)</span>
+            </a>
+            <a href="${webAppUrl}" class="btn-secondary" style="flex: 1; font-size: 14px; padding: 12px 10px; margin-bottom: 0;">
+              <span>فتح على الآيفون / الويب</span>
+            </a>
+          </div>
+        `;
+      }
+    })();
+  </script>
+</body>
+</html>

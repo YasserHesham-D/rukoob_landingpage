@@ -2430,3 +2430,489 @@ button {
     transform: translate(-35px, -6px) rotate(-4deg) scale(0.98);
   }
 }
+
+/* =========================================================
+   MOBILE EDITORIAL PASS
+   A cinematic, magazine-style rework of the mobile experience:
+   full-bleed nav, ticket-style booking card, numbered index
+   lists, filmstrip statistics, underline tabs, sheet modals.
+   ========================================================= */
+
+.section-tag-gold {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--accent-gold-light);
+  font-size: 13.5px;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(167, 180, 122, 0.35);
+}
+
+/* ---- Full-bleed editorial nav (tablet & phone) ---- */
+@media (max-width: 991px) {
+  .nav-actions {
+    position: relative;
+    z-index: 1600;
+  }
+
+  .nav-container.mobile-open {
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(190deg, rgba(6, 13, 21, 0.99) 0%, rgba(9, 18, 27, 0.99) 100%);
+    backdrop-filter: blur(22px);
+    -webkit-backdrop-filter: blur(22px);
+    border: none;
+    border-radius: 0;
+    padding: 112px 28px 40px;
+    box-shadow: none;
+    z-index: 1500;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    animation: editorialMenuIn 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .nav-container.mobile-open .nav-menu {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 0;
+    counter-reset: navindex;
+  }
+
+  .nav-container.mobile-open .nav-menu li {
+    counter-increment: navindex;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    opacity: 0;
+    transform: translateY(14px);
+    animation: navItemIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  .nav-container.mobile-open .nav-menu li:nth-child(1) { animation-delay: .08s; }
+  .nav-container.mobile-open .nav-menu li:nth-child(2) { animation-delay: .14s; }
+  .nav-container.mobile-open .nav-menu li:nth-child(3) { animation-delay: .20s; }
+  .nav-container.mobile-open .nav-menu li:nth-child(4) { animation-delay: .26s; }
+  .nav-container.mobile-open .nav-menu li:nth-child(5) { animation-delay: .32s; }
+  .nav-container.mobile-open .nav-menu li:nth-child(6) { animation-delay: .38s; }
+
+  .nav-container.mobile-open .nav-link {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    width: 100%;
+    text-align: right;
+    justify-content: flex-start;
+    padding: 20px 2px;
+    border-radius: 0;
+    font-family: var(--font-display);
+    font-size: 26px;
+    font-weight: 700;
+    color: #f3efe4 !important;
+    background: none !important;
+  }
+
+  .nav-container.mobile-open .nav-link::before {
+    content: counter(navindex, decimal-leading-zero);
+    font-family: var(--font-latin);
+    font-size: 12.5px;
+    font-weight: 700;
+    color: var(--accent-gold-light);
+    letter-spacing: 1px;
+    order: 2;
+  }
+
+  .nav-container.mobile-open .nav-link.active {
+    color: var(--accent-gold-light) !important;
+  }
+
+  body:has(.nav-container.mobile-open) {
+    overflow: hidden;
+  }
+
+  .nav-pill-wrapper:has(.nav-container.mobile-open) .mobile-toggle span {
+    background-color: #ffffff !important;
+  }
+}
+
+@keyframes editorialMenuIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes navItemIn {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ---- Hero: cinematic cover-story layout on phones ---- */
+@media (max-width: 640px) {
+  .hero-cinema-section {
+    padding-top: 118px;
+    padding-bottom: 56px;
+    min-height: 100svh;
+  }
+
+  .hero-cinema-content {
+    text-align: right;
+    max-width: 100%;
+    margin: 0;
+  }
+
+  .hero-badge-pill {
+    display: flex;
+    width: 100%;
+    justify-content: flex-start;
+    text-align: right;
+    font-size: 12.5px;
+    line-height: 1.5;
+  }
+
+  .hero-cinema-title {
+    font-size: 42px;
+    line-height: 1.02;
+    letter-spacing: -0.01em;
+    margin-bottom: 18px;
+  }
+
+  .hero-cinema-subtitle {
+    text-align: right;
+    margin: 0 0 28px;
+    max-width: 100%;
+    font-size: 15.5px;
+  }
+
+  .hero-booking-bar {
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    background: rgba(255, 255, 255, 0.06);
+    border-radius: 18px;
+    padding: 18px 20px;
+    gap: 0;
+  }
+
+  .booking-field {
+    width: 100%;
+    padding: 7px 0;
+    font-size: 14.5px;
+  }
+
+  .booking-field-divider {
+    display: block !important;
+    width: 2px;
+    height: 20px;
+    align-self: flex-end;
+    margin: 2px 24px;
+    background-image: linear-gradient(var(--accent-gold-light) 55%, transparent 45%);
+    background-size: 2px 8px;
+    background-repeat: repeat-y;
+    opacity: 0.75;
+  }
+
+  .btn-hero-cta {
+    width: 100%;
+    margin-top: 14px;
+  }
+
+  .hero-cinema-section::after {
+    content: '';
+    position: absolute;
+    bottom: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1px;
+    height: 22px;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.85), transparent);
+    z-index: 3;
+    animation: heroScrollCue 1.8s ease-in-out infinite;
+  }
+}
+
+@keyframes heroScrollCue {
+  0%, 100% { opacity: 0.35; height: 16px; }
+  50% { opacity: 1; height: 26px; }
+}
+
+/* ---- "ليه رُكوب؟" as an editorial numbered index ---- */
+@media (max-width: 640px) {
+  .why-features-grid {
+    display: block;
+    counter-reset: whyindex;
+    border-top: 1px solid rgba(95, 105, 57, 0.2);
+  }
+
+  .why-feature-card {
+    display: grid;
+    grid-template-columns: 48px 1fr;
+    column-gap: 16px;
+    align-items: start;
+    counter-increment: whyindex;
+    text-align: right;
+    padding: 24px 2px;
+    border-bottom: 1px solid rgba(95, 105, 57, 0.2);
+  }
+
+  .why-feature-card::before {
+    content: counter(whyindex, decimal-leading-zero);
+    grid-column: 1;
+    grid-row: 1 / span 3;
+    font-family: var(--font-display);
+    font-size: 32px;
+    font-weight: 700;
+    color: rgba(95, 105, 57, 0.38);
+    line-height: 1;
+  }
+
+  .why-feature-card:hover {
+    transform: none;
+  }
+
+  .why-icon-wrapper {
+    grid-column: 2;
+    grid-row: 1;
+    width: 24px;
+    height: 24px;
+    margin: 0 0 8px;
+    justify-content: flex-start;
+    border: none;
+  }
+
+  .why-icon-svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .why-card-title {
+    grid-column: 2;
+    grid-row: 2;
+    text-align: right;
+    margin-bottom: 6px;
+  }
+
+  .why-card-desc {
+    grid-column: 2;
+    grid-row: 3;
+    text-align: right;
+    max-width: none;
+    margin: 0;
+  }
+}
+
+/* ---- Aswan map stats as a filmstrip of statistic plaques ---- */
+@media (max-width: 640px) {
+  .map-stats-grid {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    gap: 16px;
+    padding: 4px 20px 8px;
+    margin: 0 -20px;
+    scrollbar-width: none;
+  }
+
+  .map-stats-grid::-webkit-scrollbar {
+    display: none;
+  }
+
+  .map-stat-card {
+    flex: 0 0 76%;
+    max-width: 280px;
+    scroll-snap-align: start;
+    background: transparent;
+    border: none;
+    border-top: 2px solid var(--map-glow-amber);
+    border-radius: 0;
+    padding: 18px 2px 0;
+    text-align: right;
+  }
+
+  .map-stat-card:hover {
+    transform: none;
+    background: transparent;
+  }
+
+  .map-stat-num {
+    font-family: var(--font-display);
+    font-size: 38px;
+    font-weight: 700;
+  }
+}
+
+/* ---- Pillars strip & underline tabs ---- */
+@media (max-width: 640px) {
+  .pillars-badge-grid {
+    display: flex;
+    grid-template-columns: none;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    gap: 14px;
+    padding: 4px 20px 6px;
+    margin: 0 -20px 26px;
+    scrollbar-width: none;
+  }
+
+  .pillars-badge-grid::-webkit-scrollbar {
+    display: none;
+  }
+
+  .pillar-badge-item {
+    flex: 0 0 72%;
+    max-width: 240px;
+    scroll-snap-align: start;
+    text-align: right;
+  }
+
+  .showcase-tabs-container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(228, 222, 200, 0.22);
+    border-radius: 0;
+    padding: 0;
+    gap: 0;
+  }
+
+  .showcase-tab-btn {
+    flex: 1;
+    width: auto;
+    justify-content: center;
+    border-radius: 0;
+    padding: 12px 6px;
+    background: transparent;
+    border-bottom: 2px solid transparent;
+    font-size: 13px;
+  }
+
+  .showcase-tab-btn.active {
+    background: transparent;
+    color: #ffffff;
+    box-shadow: none;
+    border-bottom-color: var(--accent-gold-light);
+  }
+}
+
+/* ---- Driver / partner section as a right-aligned feature story ---- */
+@media (max-width: 640px) {
+  .driver-content-wrapper,
+  .driver-center-info {
+    text-align: right;
+    align-items: flex-start;
+  }
+
+  .driver-section-title {
+    font-family: var(--font-display);
+    font-size: 30px;
+    line-height: 1.18;
+  }
+
+  .driver-section-desc {
+    text-align: right;
+    max-width: 100%;
+  }
+
+  .driver-perks-list {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    gap: 0;
+  }
+
+  .driver-perk-item {
+    padding: 14px 0;
+    border-bottom: 1px solid rgba(95, 105, 57, 0.16);
+  }
+
+  .btn-driver-register {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/* ---- Footer as a thin-rule colophon ---- */
+@media (max-width: 640px) {
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .footer-grid > div {
+    padding: 26px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    text-align: right;
+  }
+
+  .footer-grid > div:first-child {
+    padding-top: 0;
+  }
+
+  .footer-brand {
+    align-items: flex-start;
+  }
+
+  .footer-socials,
+  .footer-contact-item {
+    justify-content: flex-start;
+  }
+
+  .footer-col-title {
+    font-family: var(--font-display);
+    font-size: 19px;
+    font-weight: 700;
+  }
+}
+
+/* ---- Modals as native-feeling bottom sheets ---- */
+@media (max-width: 640px) {
+  .modal-overlay {
+    align-items: flex-end;
+    padding: 0;
+  }
+
+  .modal-card {
+    max-width: 100%;
+    width: 100%;
+    max-height: 88vh;
+    overflow-y: auto;
+    border-radius: 22px 22px 0 0;
+    padding: 30px 22px 32px;
+    transform: translateY(100%);
+  }
+
+  .modal-overlay.active .modal-card {
+    transform: translateY(0);
+  }
+
+  .modal-card::after {
+    content: '';
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 38px;
+    height: 4px;
+    border-radius: 2px;
+    background: #e2e8f0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nav-container.mobile-open,
+  .nav-container.mobile-open .nav-menu li,
+  .hero-cinema-section::after {
+    animation: none !important;
+    transition: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
