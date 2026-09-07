@@ -1,0 +1,1037 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>رُكوب | RUKOOB - مشوارك على مزاجك</title>
+  <meta name="description"
+    content="رُكوب - منصة النقل الذكي الأولى في مصر. سعر مشوارك بالطريقة اللي تناسبك، واتفق مع السائقين، واركب. ." />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" type="image/png" href="assets/rukoob-logo.png" />
+  <link rel="apple-touch-icon" href="assets/rukoob-logo.png" />
+</head>
+
+<body>
+  <!-- =========================================================
+       Header / Floating Frosted Glass Navbar
+       ========================================================= -->
+  <header class="site-header" id="mainHeader">
+    <div class="container">
+      <div class="nav-pill-wrapper">
+        <!-- Brand Logo (Far Right in RTL) -->
+        <a href="#" class="brand-logo" aria-label="رُكوب Rukoob">
+          <img src="assets/rukoob-logo.png" alt="شعار رُكوب RUKOOB" class="brand-logo-img" width="44" height="44" />
+          <div class="logo-text-group">
+            <span class="logo-arabic">رُكوب</span>
+            <span class="logo-english">RUKOOB</span>
+          </div>
+        </a>
+
+        <!-- Navigation Links (Center) -->
+        <nav class="nav-container">
+          <ul class="nav-menu">
+            <li><a href="#hero" class="nav-link active">الرئيسية</a></li>
+            <li><a href="#why" class="nav-link">مزايانا</a></li>
+            <li><a href="#aswan-map" class="nav-link">خريطة الوجهات</a></li>
+            <li><a href="#about" class="nav-link">عن التطبيق</a></li>
+            <li><a href="#drivers" class="nav-link">للشركاء</a></li>
+            <li><a href="#contact" class="nav-link">تواصل معنا</a></li>
+          </ul>
+        </nav>
+
+        <!-- Action Buttons (Far Left in RTL) -->
+        <div class="nav-actions">
+          <a href="#download" class="btn-primary-header trigger-download-modal">
+            <span>حمّل التطبيق</span>
+            <svg class="btn-download-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"
+              stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 3v13M6 11l6 6 6-6M4 20h16" />
+            </svg>
+          </a>
+          <button class="mobile-toggle" aria-label="القائمة">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- =========================================================
+       Immersive Full-Bleed Hero Section (Vita-Travel Style)
+       ========================================================= -->
+  <section class="hero-cinema-section" id="hero">
+    <div class="hero-cinema-bg"></div>
+    <div class="hero-cinema-overlay"></div>
+
+    <div class="container">
+      <div class="hero-cinema-content">
+        <div class="hero-badge-pill" data-reveal="fade-down" data-reveal-delay="100">
+          <span></span>
+          <span>•</span>
+          <span>تطبيق مصري 100% • أسوان • أسهل وأسرع وسيلة مواصلات</span>
+        </div>
+
+        <h1 class="hero-cinema-title" data-reveal="fade-up" data-reveal-delay="200">
+          مشوارك
+          <span class="title-accent">على مزاجك</span>
+        </h1>
+
+        <p class="hero-cinema-subtitle" data-reveal="fade-up" data-reveal-delay="300">
+          سعر مشوارك بالطريقة اللي تناسبك، واتفق مع السائقين مباشرة،<br />
+          واركب بأمان وراحة في كل مكان في أسوان
+        </p>
+
+        <!-- Interactive Quick Booking Bar -->
+        <div class="hero-booking-bar" data-reveal="fade-up" data-reveal-delay="400">
+          <div class="booking-field">
+            <span class="booking-field-dot"></span>
+            <span>الانطلاق: موقعي الحالي</span>
+          </div>
+
+          <div class="booking-field-divider"></div>
+
+          <div class="booking-field">
+            <span class="booking-field-dot" style="background-color: #5f6939"></span>
+            <span>الوجهة: كورنيش النيل أسوان</span>
+          </div>
+
+          <button class="btn-hero-cta trigger-download-modal">
+            طلب مشوار الآن
+          </button>
+        </div>
+
+        <!-- Store Download Badges -->
+        <div class="hero-badges-row" data-reveal="fade-up" data-reveal-delay="500">
+          <!-- App Store Badge
+            <a
+              href="#"
+              class="app-badge-btn trigger-download-modal"
+              aria-label="Download on the App Store"
+            >
+              <svg class="app-badge-icon" viewBox="0 0 24 24">
+                <path
+                  d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.37c.64-.78 1.08-1.86.96-2.95-1 .04-2.14.66-2.81 1.44-.59.68-1.11 1.77-.97 2.83 1.12.09 2.19-.54 2.82-1.32z"
+                />
+              </svg>
+              <div class="app-badge-texts">
+                <span class="app-badge-sub">Download on the</span>
+                <strong class="app-badge-main">App Store</strong>
+              </div>
+            </a>
+
+            Google Play Badge
+            <a
+              href="#"
+              class="app-badge-btn trigger-download-modal"
+              aria-label="Get it on Google Play"
+            >
+              <svg class="app-badge-icon" viewBox="0 0 24 24">
+                <path
+                  d="M3.609 1.814L13.792 12 3.61 22.186a2.03 2.03 0 0 1-.22-.924V2.738c0-.34.08-.66.22-.924zM15.207 13.414l2.427 2.427-12.87 7.43 10.443-9.857zm0-2.828L4.764.729l12.87 7.43-2.427 2.427zm1.414 1.414l3.182-1.837c1.196-.69 1.196-1.815 0-2.506L16.62 9.471l-1.414 1.415 1.415 1.414z"
+                />
+              </svg>
+              <div class="app-badge-texts">
+                <span class="app-badge-sub">GET IT ON</span>
+                <strong class="app-badge-main">Google Play</strong>
+              </div>
+            </a>
+          </div> -->
+
+          <button class="hero-download-cta trigger-download-modal" aria-label="تحميل تطبيق رُكوب">
+            <span>تحميل التطبيق</span>
+            <svg class="hero-download-cta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+              stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M12 3v12" />
+              <path d="m7 10 5 5 5-5" />
+              <path d="M5 21h14" />
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Hero Bottom Organic Curve Divider -->
+      <div class="section-curve-divider curve-hero-bottom">
+        <svg viewBox="0 0 1440 140" fill="none" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0,0 C380,120 860,10 1440,65 L1440,140 L0,140 Z" fill="#5f6939" />
+          <path d="M0,25 C420,135 900,30 1440,80 L1440,140 L0,140 Z" fill="#f7f3ea" />
+        </svg>
+      </div>
+  </section>
+
+  <!-- =========================================================
+       "ليه رُكوب؟" (Why Rukoob) Section
+       ========================================================= -->
+  <section class="why-rukoob-section" id="why">
+    <div class="container">
+      <div class="section-header-center" data-reveal="fade-up">
+        <h2 class="section-main-title">ليه رُكوب؟</h2>
+      </div>
+
+      <div class="why-features-grid">
+        <!-- Feature 1: 24/7 Support -->
+        <div class="why-feature-card" data-reveal="fade-up" data-reveal-delay="100">
+          <div class="why-icon-wrapper">
+            <svg class="why-icon-svg" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path d="M3 18v-6a9 9 0 0 1 18 0v6"></path>
+              <path
+                d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z">
+              </path>
+            </svg>
+          </div>
+          <h3 class="why-card-title">دعم على مدار الساعة</h3>
+          <p class="why-card-desc">فريق دعم محلي جاهز لمساعدتك في أي وقت</p>
+        </div>
+
+        <!-- Feature 2: 5% Commission Only -->
+        <div class="why-feature-card" data-reveal="fade-up" data-reveal-delay="200">
+          <div class="why-icon-wrapper">
+            <svg class="why-icon-svg" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"
+              stroke-linejoin="round">
+              <line x1="19" y1="5" x2="5" y2="19"></line>
+              <circle cx="6.5" cy="6.5" r="2.5"></circle>
+              <circle cx="17.5" cy="17.5" r="2.5"></circle>
+            </svg>
+          </div>
+          <h3 class="why-card-title">عمولة 5% فقط</h3>
+          <p class="why-card-desc">نسبة أقل للسائقين، وتوفير حقيقي للراكب</p>
+        </div>
+
+        <!-- Feature 3: You're in Control -->
+        <div class="why-feature-card" data-reveal="fade-up" data-reveal-delay="300">
+          <div class="why-icon-wrapper">
+            <svg class="why-icon-svg" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+          </div>
+          <h3 class="why-card-title">أنت المتحكم</h3>
+          <p class="why-card-desc">سعر مشوارك وإنت تختار السائق الأنسب لك</p>
+        </div>
+
+        <!-- Feature 4: Safety & Trust -->
+        <div class="why-feature-card" data-reveal="fade-up" data-reveal-delay="400">
+          <div class="why-icon-wrapper">
+            <svg class="why-icon-svg" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+            </svg>
+          </div>
+          <h3 class="why-card-title">أمان وموثوقية</h3>
+          <p class="why-card-desc">
+            رحلات آمنة مع سائقين موثقين وتقييمات حقيقية
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Why Section Bottom Organic Curve Divider -->
+    <div class="section-curve-divider curve-why-bottom">
+      <svg viewBox="0 0 1440 140" fill="none" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,45 C480,140 960,10 1440,75 L1440,140 L0,140 Z" fill="#08111a" />
+      </svg>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       Ambient Aswan Street Map Section (Background Only)
+       ========================================================= -->
+  <section class="aswan-map-section" id="aswan-map">
+    <!-- Atmospheric Background Map Container -->
+    <div class="aswan-bg-map-backdrop">
+      <svg class="aswan-vector-bg-svg" viewBox="0 0 1200 680" preserveAspectRatio="xMidYMid slice" fill="none"
+        xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <filter id="bgGlowAmber" x="-30%" y="-30%" width="160%" height="160%">
+            <feGaussianBlur stdDeviation="8" result="blur" />
+            <feMerge>
+              <feMergeNode in="blur" />
+              <feMergeNode in="SourceGraphic" />
+            </feMerge>
+          </filter>
+
+          <filter id="bgGlowGreen" x="-30%" y="-30%" width="160%" height="160%">
+            <feGaussianBlur stdDeviation="6" result="blur" />
+            <feMerge>
+              <feMergeNode in="blur" />
+              <feMergeNode in="SourceGraphic" />
+            </feMerge>
+          </filter>
+
+          <linearGradient id="bgNileGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#0c2942" stop-opacity="0.95" />
+            <stop offset="50%" stop-color="#0f3454" stop-opacity="0.9" />
+            <stop offset="100%" stop-color="#081c2e" stop-opacity="0.95" />
+          </linearGradient>
+
+          <linearGradient id="bgGreenTraffic" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#10b981" />
+            <stop offset="100%" stop-color="#059669" />
+          </linearGradient>
+
+          <linearGradient id="bgAmberTraffic" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#f59e0b" />
+            <stop offset="100%" stop-color="#d97706" />
+          </linearGradient>
+
+          <radialGradient id="mapVignette" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#08111a" stop-opacity="0.2" />
+            <stop offset="75%" stop-color="#08111a" stop-opacity="0.75" />
+            <stop offset="100%" stop-color="#08111a" stop-opacity="0.96" />
+          </radialGradient>
+        </defs>
+
+        <!-- 1. Deep Obsidian Base -->
+        <rect width="1200" height="680" fill="#08111a" />
+
+        <!-- 2. Urban Blocks Grid Layer -->
+        <g opacity="0.09">
+          <rect x="240" y="40" width="320" height="160" fill="#1b2e40" rx="16" />
+          <rect x="620" y="50" width="340" height="150" fill="#1b2e40" rx="16" />
+          <rect x="220" y="240" width="300" height="180" fill="#1b2e40" rx="16" />
+          <rect x="560" y="230" width="380" height="190" fill="#1b2e40" rx="16" />
+          <rect x="200" y="450" width="340" height="190" fill="#1b2e40" rx="16" />
+          <rect x="580" y="450" width="380" height="190" fill="#1b2e40" rx="16" />
+          <path d="M 980 0 L 1200 0 L 1200 680 L 1000 680 Q 960 480 980 300 Z" fill="#141f2a" />
+        </g>
+
+        <!-- 3. Local Street Minor Mesh -->
+        <g stroke="#ffffff" stroke-width="1.2" stroke-opacity="0.07">
+          <line x1="620" y1="70" x2="940" y2="70" />
+          <line x1="620" y1="110" x2="940" y2="110" />
+          <line x1="620" y1="150" x2="940" y2="150" />
+          <line x1="660" y1="50" x2="660" y2="190" />
+          <line x1="720" y1="50" x2="720" y2="190" />
+          <line x1="780" y1="50" x2="780" y2="190" />
+          <line x1="840" y1="50" x2="840" y2="190" />
+
+          <line x1="240" y1="270" x2="520" y2="270" />
+          <line x1="240" y1="315" x2="520" y2="315" />
+          <line x1="240" y1="360" x2="520" y2="360" />
+          <line x1="280" y1="240" x2="280" y2="410" />
+          <line x1="340" y1="240" x2="340" y2="410" />
+          <line x1="400" y1="240" x2="400" y2="410" />
+          <line x1="460" y1="240" x2="460" y2="410" />
+
+          <line x1="220" y1="480" x2="520" y2="480" />
+          <line x1="220" y1="530" x2="520" y2="530" />
+          <line x1="220" y1="580" x2="520" y2="580" />
+          <line x1="270" y1="450" x2="270" y2="630" />
+          <line x1="340" y1="450" x2="340" y2="630" />
+          <line x1="410" y1="450" x2="410" y2="630" />
+        </g>
+
+        <!-- 4. Real Aswan Nile River Stream -->
+        <path d="M 0 0 L 150 0 Q 180 140 145 250 Q 100 360 135 480 Q 170 560 110 680 L 0 680 Z" fill="url(#bgNileGrad)"
+          stroke="#1a4c73" stroke-width="2.5" />
+
+        <!-- Nile Islands -->
+        <path d="M 85 180 Q 105 215 95 270 Q 75 300 65 270 Q 60 215 85 180 Z" fill="#0d1b28" stroke="#254e70"
+          stroke-width="1.5" />
+        <ellipse cx="70" cy="390" rx="15" ry="28" fill="#0d1b28" stroke="#254e70" stroke-width="1.2" />
+        <ellipse cx="75" cy="590" rx="20" ry="30" fill="#0d1b28" stroke="#254e70" stroke-width="1.5" />
+
+        <!-- 5. Real Primary Highways Network -->
+        <!-- Kornish El Nile (شارع كورنيش النيل) -->
+        <path d="M 150 0 Q 180 140 145 250 Q 100 360 135 480 Q 170 560 110 680" fill="none" stroke="#2a4760"
+          stroke-width="12" stroke-linecap="round" />
+        <path d="M 150 0 Q 180 140 145 250 Q 100 360 135 480 Q 170 560 110 680" fill="none"
+          stroke="url(#bgGreenTraffic)" stroke-width="5.5" stroke-linecap="round" filter="url(#bgGlowGreen)" />
+
+        <!-- El-Sadat Highway (طريق السادات الرئيسي) -->
+        <path d="M 250 40 L 285 150 Q 320 250 360 350 Q 410 470 435 565 L 445 680" fill="none" stroke="#2a4760"
+          stroke-width="14" stroke-linecap="round" />
+        <path d="M 250 40 L 285 150 Q 320 250 360 350 Q 410 470 435 565 L 445 680" fill="none"
+          stroke="url(#bgGreenTraffic)" stroke-width="6.5" stroke-linecap="round" filter="url(#bgGlowGreen)" />
+        <path d="M 250 40 L 285 150 Q 320 250 360 350 Q 410 470 435 565 L 445 680" fill="none" stroke="#ffffff"
+          stroke-width="1.5" stroke-dasharray="6,8" stroke-linecap="round" opacity="0.8" />
+
+        <!-- Eastern Highway & Route 75 -->
+        <path d="M 720 0 Q 680 170 660 300 Q 640 430 680 540 Q 700 605 710 680" fill="none" stroke="#2a4760"
+          stroke-width="10" stroke-linecap="round" />
+        <path d="M 720 0 Q 680 170 660 300 Q 640 430 680 540 Q 700 605 710 680" fill="none"
+          stroke="url(#bgAmberTraffic)" stroke-width="4.5" stroke-linecap="round" />
+
+        <!-- Cross Highways -->
+        <path d="M 150 230 Q 240 250 340 255 L 660 255 L 920 230" fill="none" stroke="#243f56" stroke-width="5"
+          stroke-linecap="round" />
+        <path d="M 140 150 Q 300 195 540 185 Q 810 165 990 195" fill="none" stroke="#243f56" stroke-width="5"
+          stroke-linecap="round" />
+        <path d="M 120 400 Q 240 390 380 400 L 650 420 L 920 430" fill="none" stroke="#243f56" stroke-width="5"
+          stroke-linecap="round" />
+        <path d="M 110 565 Q 275 555 435 570 Q 650 595 920 620" fill="none" stroke="url(#bgGreenTraffic)"
+          stroke-width="5" stroke-linecap="round" filter="url(#bgGlowGreen)" />
+
+        <!-- Pure Glowing Location Beacon Nodes (No Text, No Badges) -->
+        <g transform="translate(345, 215)">
+          <circle cx="0" cy="0" r="14" fill="#fba13a" opacity="0.25" />
+          <circle cx="0" cy="0" r="6" fill="#fba13a" filter="url(#bgGlowAmber)" />
+          <circle cx="0" cy="0" r="2.5" fill="#ffffff" />
+        </g>
+
+        <g transform="translate(515, 215)">
+          <circle cx="0" cy="0" r="14" fill="#ef4444" opacity="0.25" />
+          <circle cx="0" cy="0" r="6" fill="#ef4444" filter="url(#bgGlowAmber)" />
+          <circle cx="0" cy="0" r="2.5" fill="#ffffff" />
+        </g>
+
+        <g transform="translate(380, 325)">
+          <circle cx="0" cy="0" r="14" fill="#a7b47a" opacity="0.25" />
+          <circle cx="0" cy="0" r="6" fill="#a7b47a" filter="url(#bgGlowAmber)" />
+          <circle cx="0" cy="0" r="2.5" fill="#ffffff" />
+        </g>
+
+        <g transform="translate(170, 130)">
+          <circle cx="0" cy="0" r="14" fill="#38bdf8" opacity="0.25" />
+          <circle cx="0" cy="0" r="6" fill="#38bdf8" />
+          <circle cx="0" cy="0" r="2.5" fill="#ffffff" />
+        </g>
+
+        <g transform="translate(260, 400)">
+          <circle cx="0" cy="0" r="14" fill="#10b981" opacity="0.25" />
+          <circle cx="0" cy="0" r="6" fill="#10b981" />
+          <circle cx="0" cy="0" r="2.5" fill="#ffffff" />
+        </g>
+
+        <g transform="translate(680, 160)">
+          <circle cx="0" cy="0" r="14" fill="#ef4444" opacity="0.25" />
+          <circle cx="0" cy="0" r="6" fill="#ef4444" />
+          <circle cx="0" cy="0" r="2.5" fill="#ffffff" />
+        </g>
+
+        <g transform="translate(390, 520)">
+          <circle cx="0" cy="0" r="14" fill="#fba13a" opacity="0.25" />
+          <circle cx="0" cy="0" r="6" fill="#fba13a" filter="url(#bgGlowAmber)" />
+          <circle cx="0" cy="0" r="2.5" fill="#ffffff" />
+        </g>
+
+        <g transform="translate(145, 465)">
+          <circle cx="0" cy="0" r="14" fill="#a7b47a" opacity="0.25" />
+          <circle cx="0" cy="0" r="6" fill="#a7b47a" />
+          <circle cx="0" cy="0" r="2.5" fill="#ffffff" />
+        </g>
+
+        <g transform="translate(920, 500)">
+          <circle cx="0" cy="0" r="16" fill="#fba13a" opacity="0.3" />
+          <circle cx="0" cy="0" r="7" fill="#fba13a" filter="url(#bgGlowAmber)" />
+          <circle cx="0" cy="0" r="3" fill="#ffffff" />
+        </g>
+
+        <g transform="translate(650, 580)">
+          <circle cx="0" cy="0" r="14" fill="#10b981" opacity="0.25" />
+          <circle cx="0" cy="0" r="6" fill="#10b981" />
+          <circle cx="0" cy="0" r="2.5" fill="#ffffff" />
+        </g>
+
+        <!-- Smooth Map Vignette Overlay for Readability -->
+        <rect width="1200" height="680" fill="url(#mapVignette)" />
+      </svg>
+    </div>
+
+    <!-- Foreground Content Layer -->
+    <div class="container aswan-map-content-layer">
+      <div class="map-section-header text-center" data-reveal="fade-up">
+        <div class="map-header-badge">
+          <span>📍 خريطة وتغطية أسوان الشاملة</span>
+          <span>•</span>
+          <span>خدمة فورية 24/7</span>
+        </div>
+        <h2 class="map-section-title">في كل شبر من أسوان، مشوارك بضغطة زر</h2>
+        <p class="map-section-desc mx-auto">
+          شبكة تنقل ذكية تغطي كورنيش النيل، طريق السادات، وسط البلد، المسلة
+          الناقصة، غرب سهيل، معبد فيلة، ومطار أسوان الدولي على مدار 24 ساعة
+          بأقل عمولة في مصر (5% فقط).
+        </p>
+      </div>
+
+      <!-- Real Aswan City Metric Cards -->
+      <div class="map-stats-grid" data-reveal="fade-up" data-reveal-delay="200">
+        <div class="map-stat-card">
+          <div class="map-stat-num">5 دقائق</div>
+          <h3 class="map-stat-title">متوسط زمن وصول السائق</h3>
+          <p class="map-stat-sub">
+            توزيع ذكي لسيارات رُكوب على طول كورنيش النيل، طريق السادات، ووسط
+            البلد.
+          </p>
+        </div>
+
+        <div class="map-stat-card">
+          <div class="map-stat-num">100%</div>
+          <h3 class="map-stat-title">تغطية شاملة لكل معالم أسوان</h3>
+          <p class="map-stat-sub">
+            مستشفى مجدي يعقوب، المسلة الناقصة، معبد فيلة، الشلال، غرب سهيل،
+            ومطار أسوان.
+          </p>
+        </div>
+
+        <div class="map-stat-card">
+          <div class="map-stat-num">5% فقط</div>
+          <h3 class="map-stat-title">أقل عمولة على مستوى مصر</h3>
+          <p class="map-stat-sub">
+            سعر عادل يحدده الراكب ويتفق عليه مع السائق مباشرة دون زيادات
+            عشوائية.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       "تجربة سهلة وسريعة" (Dark Showcase with 3 App Mockups)
+       ========================================================= -->
+  <section class="experience-section" id="about">
+    <div class="container">
+      <!-- 3 Pillars of Rukoob: Aswan, Cheap/Fair, 100% Egyptian -->
+      <div class="showcase-header-center" data-reveal="fade-up">
+        <div class="section-tag-gold" style="margin-bottom: 14px;">
+          <span>مميزات وتجربة رُكوب</span>
+        </div>
+        <h2 class="exp-title" style="text-align: center; margin-bottom: 16px;">
+          تطبيق أسواني <span class="accent-gold">مصري 100%</span> يجمعنا
+        </h2>
+        <p class="exp-subtitle" style="text-align: center; max-width: 680px; margin: 0 auto 36px;">
+          صُمم خصيصاً ليناسب شوارع ومعالم أسوان وأهلها الكرام — أوفر للراكب، وأعلى دخل للكابتن مع أقل عمولة في مصر (5%
+          فقط).
+        </p>
+
+        <!-- 3 Advantage Badges -->
+        <div class="pillars-badge-grid">
+          <div class="pillar-badge-item">
+            <div class="pillar-badge-icon">🏛️</div>
+            <div class="pillar-badge-title">من قلب أسوان لأهل أسوان</div>
+            <div class="pillar-badge-desc">معرفة دقيقة بكافة المعالم والشوارع والأحياء بأسوان</div>
+          </div>
+          <div class="pillar-badge-item">
+            <div class="pillar-badge-icon">💰</div>
+            <div class="pillar-badge-title">أوفر للراكب وأربح للكابتن</div>
+            <div class="pillar-badge-desc">حرية كاملة في تحديد وقبول الأسعار العادلة دون وسيط</div>
+          </div>
+          <div class="pillar-badge-item">
+            <div class="pillar-badge-icon">🇪🇬</div>
+            <div class="pillar-badge-title">100% مصري وطني</div>
+            <div class="pillar-badge-desc">بأيادي ومطوري أبناء النوبة وأسوان لخدمة مجتمعنا</div>
+          </div>
+        </div>
+
+        <!-- Switcher Tabs (Passenger vs Driver) -->
+        <div class="showcase-tabs-container">
+          <button class="showcase-tab-btn active" id="tabPassengerView" data-target="passengerView">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+            <span>تجربة الراكب (Passenger)</span>
+          </button>
+          <button class="showcase-tab-btn" id="tabDriverView" data-target="driverView">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="1" y="3" width="15" height="13"></rect>
+              <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
+              <circle cx="5.5" cy="18.5" r="2.5"></circle>
+              <circle cx="18.5" cy="18.5" r="2.5"></circle>
+            </svg>
+            <span>تجربة الكابتن (Driver)</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Screens Showcase Wrapper -->
+      <div class="showcase-views-wrapper" data-reveal="fade-up" data-reveal-delay="150">
+
+        <!-- 1. Passenger View -->
+        <div class="phones-view-panel active" id="passengerView">
+          <div class="phones-showcase-row">
+            <!-- Passenger Screen 1: Landmarks & Pick Location -->
+            <div class="phone-showcase-item" data-screen-index="1">
+              <div class="phone-screen-tag">1. تحديد الانطلاق والمعالم</div>
+              <div class="mini-phone">
+                <div class="mini-screen">
+                  <img class="phone-showcase-image" src="assets/passenger-landmarks.jpg"
+                    alt="شاشة اختيار نقطة الانطلاق والمعالم في أسوان" />
+                </div>
+              </div>
+              <div class="phone-caption">
+                <strong>معالم أسوان بضغطة زر</strong>
+                <span>اختر من معالم ومحطات أسوان أو موقعك عبر GPS</span>
+              </div>
+            </div>
+
+            <!-- Passenger Screen 2: Set Price -->
+            <div class="phone-showcase-item phone-showcase-offset" data-screen-index="2">
+              <div class="phone-screen-tag">2. حدد سعرك العادل</div>
+              <div class="mini-phone">
+                <div class="mini-screen">
+                  <img class="phone-showcase-image" src="assets/passenger-price.jpg"
+                    alt="شاشة تحديد السعر المناسب في تطبيق رُكوب" />
+                </div>
+              </div>
+              <div class="phone-caption">
+                <strong>مشوارك بسعرك</strong>
+                <span>اقترح السعر المناسب لك مع عرض المسافة المقدرة</span>
+              </div>
+            </div>
+
+            <!-- Passenger Screen 3: Live Map + Stacked Offer Behind It -->
+            <div class="phone-showcase-item phone-stacked-wrapper" data-screen-index="3">
+              <div class="phone-screen-tag">3. المسار وعروض الكباتن</div>
+
+              <div class="stacked-phone-group">
+                <!-- Behind Screen: Driver Offer Screen (Peeks left on hover) -->
+                <div class="mini-phone peek-back-phone">
+                  <div class="mini-screen">
+                    <img class="phone-showcase-image" src="assets/passenger-offer.jpg"
+                      alt="شاشة استقبال عروض الكباتن وقبول العرض المناسب" />
+                  </div>
+                </div>
+
+                <!-- Front Screen: Live Map & Route -->
+                <div class="mini-phone front-phone">
+                  <div class="mini-screen">
+                    <img class="phone-showcase-image" src="assets/passenger-map.jpg"
+                      alt="شاشة خريطة ومسار المشوار في أسوان" />
+                  </div>
+                </div>
+              </div>
+
+              <div class="phone-caption">
+                <strong>عروض مباشرة ومتابعة المسار</strong>
+                <span>مرر الفأرة لرؤية شاشة استقبال عروض الكباتن وقبولها</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Mobile Dots Pagination -->
+          <div class="showcase-mobile-dots">
+            <span class="dot active" data-dot="1"></span>
+            <span class="dot" data-dot="2"></span>
+            <span class="dot" data-dot="3"></span>
+          </div>
+        </div>
+
+        <!-- 2. Driver View -->
+        <div class="phones-view-panel" id="driverView" style="display: none;">
+          <div class="phones-showcase-row">
+            <!-- Driver Screen 1: Driver Home & Map -->
+            <div class="phone-showcase-item" data-screen-index="1">
+              <div class="phone-screen-tag">1. الرئيسية وخريطة الكابتن</div>
+              <div class="mini-phone">
+                <div class="mini-screen">
+                  <img class="phone-showcase-image" src="assets/driver-home.png"
+                    alt="شاشة كابتن رُكوب الرئيسية والخريطة" />
+                </div>
+              </div>
+              <div class="phone-caption">
+                <strong>جاهز لتلقي المشاوير</strong>
+                <span>اتصال مباشر بضغطة زر مع متابعة الدخل اليومي</span>
+              </div>
+            </div>
+
+            <!-- Driver Screen 2: Driver Requests & Bidding -->
+            <div class="phone-showcase-item phone-showcase-offset" data-screen-index="2">
+              <div class="phone-screen-tag">2. طلبات المشاوير القريبة</div>
+              <div class="mini-phone">
+                <div class="mini-screen">
+                  <img class="phone-showcase-image" src="assets/driver-requests.png"
+                    alt="شاشة طلبات المشاوير والمزايدة في تطبيق رُكوب" />
+                </div>
+              </div>
+              <div class="phone-caption">
+                <strong>حرية قبول أو تعديل السعر</strong>
+                <span>استقبل طلبات الركاب القريبة وقدّم عرضك بالسعر المناسب</span>
+              </div>
+            </div>
+
+            <!-- Driver Screen 3: Wallet & 5% Commission -->
+            <div class="phone-showcase-item" data-screen-index="3">
+              <div class="phone-screen-tag">3. محفظة الأرباح وسحب الرصيد</div>
+              <div class="mini-phone">
+                <div class="mini-screen">
+                  <img class="phone-showcase-image"
+                    src="assets/WhatsApp%20Image%202026-09-06%20at%208.57.51%20PM%20(4).jpeg"
+                    alt="شاشة أرباح ومحفظة الكابتن في تطبيق رُكوب" />
+                </div>
+              </div>
+              <div class="phone-caption">
+                <strong>أعلى دخل وأقل عمولة (5% فقط)</strong>
+                <span>سحب يومي فوري لأرباحك مع شفافية تامة في الحسابات</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Mobile Dots Pagination -->
+          <div class="showcase-mobile-dots">
+            <span class="dot active" data-dot="1"></span>
+            <span class="dot" data-dot="2"></span>
+            <span class="dot" data-dot="3"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Experience Showcase Bottom Curve to Driver Section -->
+    <div class="section-curve-divider curve-experience-bottom">
+      <svg viewBox="0 0 1440 140" fill="none" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,10 C460,110 920,5 1440,60 L1440,140 L0,140 Z" fill="#5f6939" opacity="0.6" />
+        <path d="M0,32 C480,125 940,25 1440,75 L1440,140 L0,140 Z" fill="#f7f3ea" />
+      </svg>
+    </div>
+  </section>
+  <section class="driver-section" id="drivers">
+    <!-- Background Bleed Car Visual on the Left with Soft Gradient Fade -->
+    <div class="driver-bleed-bg"></div>
+
+    <div class="container">
+      <div class="driver-content-wrapper">
+        <!-- Right Column (Far Right in RTL): 4 Perks with Minimalist Outline Icons -->
+        <div class="driver-perks-list" data-reveal="fade-up" data-reveal-delay="200">
+          <!-- Perk 1: Higher Income -->
+          <div class="driver-perk-item">
+            <div class="driver-perk-icon-outline">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <circle cx="12" cy="12" r="9" />
+                <path d="M14.5 9h-3.5a1.5 1.5 0 0 0 0 3h2a1.5 1.5 0 0 1 0 3H9.5" />
+                <path d="M12 6v12" />
+              </svg>
+            </div>
+            <div class="driver-perk-text">
+              <h3 class="driver-perk-title">دخل أعلى</h3>
+              <p class="driver-perk-sub">عمولة 5% فقط</p>
+            </div>
+          </div>
+
+          <!-- Perk 2: Full Control -->
+          <div class="driver-perk-item">
+            <div class="driver-perk-icon-outline">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <circle cx="12" cy="12" r="9" />
+                <polygon points="15 9 10 10 9 15 14 14 15 9" fill="currentColor" fill-opacity="0.2" />
+              </svg>
+            </div>
+            <div class="driver-perk-text">
+              <h3 class="driver-perk-title">تحكم كامل</h3>
+              <p class="driver-perk-sub">اقبل الرحلات اللي تناسبك</p>
+            </div>
+          </div>
+
+          <!-- Perk 3: Instant Withdrawal -->
+          <div class="driver-perk-item">
+            <div class="driver-perk-icon-outline">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <rect x="3" y="7" width="18" height="13" rx="2" />
+                <path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2" />
+                <circle cx="12" cy="13.5" r="1.5" />
+              </svg>
+            </div>
+            <div class="driver-perk-text">
+              <h3 class="driver-perk-title">سحب فوري</h3>
+              <p class="driver-perk-sub">حول أرباحك وقت ما تحب</p>
+            </div>
+          </div>
+
+          <!-- Perk 4: 24/7 Support -->
+          <div class="driver-perk-item">
+            <div class="driver-perk-icon-outline">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <path d="M3 18v-6a9 9 0 0 1 18 0v6" />
+                <path
+                  d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z" />
+              </svg>
+            </div>
+            <div class="driver-perk-text">
+              <h3 class="driver-perk-title">دعم دائم</h3>
+              <p class="driver-perk-sub">فريق دعم معاك طول الوقت</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Center Column (Middle of Screen in RTL): Driver Pitch -->
+        <div class="driver-center-info" data-reveal="fade-up" data-reveal-delay="100">
+          <h2 class="driver-section-title">
+            سائق مع رُكوب؟<br />
+            <span class="accent-gold-text">أنت كسبان أكتر</span>
+          </h2>
+
+          <p class="driver-section-desc">
+            عمولة 5% فقط يعني دخل أعلى ليك، وتحكم كامل في الوقت والرحلات اللي
+            تناسبك.
+          </p>
+
+          <a href="#register" class="btn-driver-register trigger-driver-modal">سجل كسائق الآن</a>
+
+          <div class="driver-sub-cta">
+            <span class="or-separator">أو</span>
+            <a href="#driver-benefits" class="driver-more-link trigger-driver-modal">
+              <span>اعرف المزيد عن مزايا السائقين</span>
+              <span class="arrow-icon">←</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Driver Section Bottom Organic Curve Divider to Footer -->
+    <div class="section-curve-divider curve-driver-bottom">
+      <svg viewBox="0 0 1440 140" fill="none" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,0 C380,120 860,10 1440,65 L1440,140 L0,140 Z" fill="#5f6939" />
+        <path d="M0,25 C420,135 900,30 1440,80 L1440,140 L0,140 Z" fill="#08111a" />
+      </svg>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       Footer Section
+       ========================================================= -->
+  <footer class="site-footer" id="contact">
+    <div class="container">
+      <div class="footer-grid">
+        <!-- Column 1: Brand Info (Rightmost in RTL) -->
+        <div class="footer-brand" data-reveal="fade-up">
+          <a href="#" class="footer-logo" aria-label="رُكوب Rukoob">
+            <img src="assets/rukoob-logo.png" alt="شعار رُكوب RUKOOB" class="footer-logo-img" width="46" height="46" />
+            <div class="logo-text-group">
+              <span class="footer-logo-text-arabic">رُكوب</span>
+              <span class="footer-logo-text-english">RUKOOB</span>
+            </div>
+          </a>
+
+          <p class="footer-desc">
+            رُكوب منصة النقل الذكي الأولى في مصر — تربط بين الركاب والسائقين
+            بطريقة عادلة وشفافة وبأقل عمولة (5% فقط).
+          </p>
+
+          <div class="footer-socials">
+            <a href="#" class="social-icon-btn" aria-label="Facebook">
+              <svg class="social-icon-svg" viewBox="0 0 24 24">
+                <path
+                  d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95z" />
+              </svg>
+            </a>
+            <a href="#" class="social-icon-btn" aria-label="Instagram">
+              <svg class="social-icon-svg" viewBox="0 0 24 24">
+                <path
+                  d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+              </svg>
+            </a>
+            <a href="#" class="social-icon-btn" aria-label="TikTok">
+              <svg class="social-icon-svg" viewBox="0 0 24 24">
+                <path
+                  d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.24 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z" />
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Column 2: Quick Links -->
+        <div data-reveal="fade-up" data-reveal-delay="100">
+          <h4 class="footer-col-title">روابط سريعة</h4>
+          <ul class="footer-links-list">
+            <li class="footer-link-item"><a href="#hero">الرئيسية</a></li>
+            <li class="footer-link-item"><a href="#why">مزايانا</a></li>
+            <li class="footer-link-item">
+              <a href="#aswan-map">خريطة الوجهات</a>
+            </li>
+            <li class="footer-link-item"><a href="#about">عن التطبيق</a></li>
+            <li class="footer-link-item">
+              <a href="#drivers">مزايا السائقين</a>
+            </li>
+            <li class="footer-link-item">
+              <a href="#contact">تواصل معنا</a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Column 3: Services -->
+        <div data-reveal="fade-up" data-reveal-delay="200">
+          <h4 class="footer-col-title">خدماتنا</h4>
+          <ul class="footer-links-list">
+            <li class="footer-link-item">
+              <a href="#">توصيل داخل المدينة</a>
+            </li>
+            <li class="footer-link-item"><a href="#">توصيل للمطارات</a></li>
+            <li class="footer-link-item">
+              <a href="#">رحلات بين المحافظات</a>
+            </li>
+            <li class="footer-link-item"><a href="#">خدمة الشركات</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 4: Drivers -->
+        <div data-reveal="fade-up" data-reveal-delay="300">
+          <h4 class="footer-col-title">للسائقين</h4>
+          <ul class="footer-links-list">
+            <li class="footer-link-item">
+              <a href="#register" class="trigger-driver-modal">سجل كسائق</a>
+            </li>
+            <li class="footer-link-item">
+              <a href="#drivers">مزايا السائقين</a>
+            </li>
+            <li class="footer-link-item"><a href="#">الشروط والأحكام</a></li>
+            <li class="footer-link-item"><a href="#">المدونة</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 5: Contact Info (Leftmost in RTL) -->
+        <div data-reveal="fade-up" data-reveal-delay="400">
+          <h4 class="footer-col-title">تواصل معنا</h4>
+
+          <div class="footer-contact-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path
+                d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+              </path>
+            </svg>
+            <span dir="ltr">+20 123 456 7890</span>
+          </div>
+
+          <div class="footer-contact-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+              <polyline points="22,6 12,13 2,6"></polyline>
+            </svg>
+            <span>hello@rukoob.com</span>
+          </div>
+
+          <div class="footer-contact-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+              <circle cx="12" cy="10" r="3"></circle>
+            </svg>
+            <span>أسوان ، جمهورية مصر العربية</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Copyright Bottom Bar -->
+      <div class="footer-bottom">
+        <p>© رُكوب. جميع الحقوق محفوظة.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- =========================================================
+       Modals: App Download & Driver Registration
+       ========================================================= -->
+
+  <!-- Download Modal -->
+  <div class="modal-overlay" id="appDownloadModal">
+    <div class="modal-card">
+      <button class="modal-close-btn" aria-label="إغلاق">&times;</button>
+      <h3 class="modal-title">حمّل تطبيق رُكوب الآن</h3>
+      <p class="modal-desc">
+        اختر نظام جهازك لتحميل تطبيق رُكوب والبدء في مشاويرك بأمان.
+      </p>
+
+      <p class="download-platform-label">اختر نظام جهازك</p>
+
+      <div style="display: flex; justify-content: center; margin-bottom: 24px">
+        <div style="
+              background: #f8fafc;
+              border: 2px dashed #cbd5e1;
+              border-radius: 16px;
+              padding: 18px;
+              text-align: center;
+            ">
+          <svg width="140" height="140" viewBox="0 0 100 100" fill="#1e293b">
+            <rect width="100" height="100" fill="#ffffff" rx="6" />
+            <rect x="10" y="10" width="30" height="30" fill="#16222d" />
+            <rect x="15" y="15" width="20" height="20" fill="#ffffff" />
+            <rect x="20" y="20" width="10" height="10" fill="#5f6939" />
+            <rect x="60" y="10" width="30" height="30" fill="#16222d" />
+            <rect x="65" y="15" width="20" height="20" fill="#ffffff" />
+            <rect x="70" y="20" width="10" height="10" fill="#5f6939" />
+            <rect x="10" y="60" width="30" height="30" fill="#16222d" />
+            <rect x="15" y="65" width="20" height="20" fill="#ffffff" />
+            <rect x="20" y="70" width="10" height="10" fill="#5f6939" />
+            <rect x="45" y="15" width="8" height="20" fill="#16222d" />
+            <rect x="45" y="45" width="20" height="10" fill="#5f6939" />
+            <rect x="65" y="60" width="25" height="8" fill="#16222d" />
+            <rect x="60" y="75" width="12" height="15" fill="#5f6939" />
+            <rect x="78" y="75" width="12" height="15" fill="#16222d" />
+          </svg>
+          <div style="
+                font-size: 12px;
+                font-weight: 700;
+                color: #5f6939;
+                margin-top: 8px;
+              ">
+            امسح الكود لتحميل التطبيق مباشرة
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-badges-row">
+        <a href="https://apps.apple.com/" class="app-badge-btn" target="_blank" rel="noopener noreferrer"
+          style="flex: 1; justify-content: center">
+          <svg class="app-badge-icon" viewBox="0 0 24 24">
+            <path
+              d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.37c.64-.78 1.08-1.86.96-2.95-1 .04-2.14.66-2.81 1.44-.59.68-1.11 1.77-.97 2.83 1.12.09 2.19-.54 2.82-1.32z" />
+          </svg>
+          <div class="app-badge-texts">
+            <span class="app-badge-sub">FOR IPHONE</span>
+            <strong class="app-badge-main">App Store</strong>
+          </div>
+        </a>
+        <a href="assets/app-release.apk" class="app-badge-btn" download="app-release.apk"
+          style="flex: 1; justify-content: center">
+          <svg class="app-badge-icon" viewBox="0 0 24 24">
+            <path
+              d="M3.609 1.814L13.792 12 3.61 22.186a2.03 2.03 0 0 1-.22-.924V2.738c0-.34.08-.66.22-.924zM15.207 13.414l2.427 2.427-12.87 7.43 10.443-9.857zm0-2.828L4.764.729l12.87 7.43-2.427 2.427zm1.414 1.414l3.182-1.837c1.196-.69 1.196-1.815 0-2.506L16.62 9.471l-1.414 1.415 1.415 1.414z" />
+          </svg>
+          <div class="app-badge-texts">
+            <span class="app-badge-sub">FOR ANDROID</span>
+            <strong class="app-badge-main">Google Play</strong>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Driver Registration Modal -->
+  <div class="modal-overlay" id="driverModal">
+    <div class="modal-card">
+      <button class="modal-close-btn" aria-label="إغلاق">&times;</button>
+      <h3 class="modal-title">سجل كشريك سائق مع رُكوب</h3>
+      <p class="modal-desc">
+        انضم إلى أسرع مجتمع سائقين نمواً واستمتع بأقل عمولة في مصر (5% فقط)
+        وسحب يومي لأرباحك.
+      </p>
+
+      <form id="driverForm">
+        <div class="form-group">
+          <label class="form-label" for="driverName">الاسم بالكامل</label>
+          <input type="text" id="driverName" class="form-control" placeholder="مثال: أحمد محمود" required />
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="driverPhone">رقم الهاتف (واتساب)</label>
+          <input type="tel" id="driverPhone" class="form-control" placeholder="010XXXXXXXX" required />
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="driverCity">المدينة / المحافظة</label>
+          <select id="driverCity" class="form-control" required>
+            <option value="أسوان" selected>أسوان</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="carModel">نوع وموديل السيارة</label>
+          <input type="text" id="carModel" class="form-control" placeholder="مثال: تويوتا كورولا 2022" required />
+        </div>
+
+        <button type="submit" class="btn-form-submit">
+          إرسال طلب الانضمام
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Lenis Smooth Scroll Library -->
+  <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
+  <script src="app.js"></script>
+</body>
+
+</html>
