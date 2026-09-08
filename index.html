@@ -7,7 +7,7 @@
   <title>رُكوب | RUKOOB - مشوارك على مزاجك</title>
   <meta name="description"
     content="رُكوب - منصة النقل الذكي الأولى في مصر. سعر مشوارك بالطريقة اللي تناسبك، واتفق مع السائقين، واركب. ." />
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css?v=5.0" />
   <link rel="icon" type="image/png" href="assets/rukoob-logo.png" />
   <link rel="apple-touch-icon" href="assets/rukoob-logo.png" />
 </head>
@@ -68,10 +68,8 @@
 
     <div class="container">
       <div class="hero-cinema-content">
-        <div class="hero-badge-pill" data-reveal="fade-down" data-reveal-delay="100">
-          <span></span>
-          <span>•</span>
-          <span>تطبيق مصري 100% • أسوان • أسهل وأسرع وسيلة مواصلات</span>
+                <div class="hero-badge-pill" data-reveal="fade-down" data-reveal-delay="100">
+          <span>تطبيق مصري 100% • أسوان • أسهل وأسرع وسيلة مواصلات ▪</span>
         </div>
 
         <h1 class="hero-cinema-title" data-reveal="fade-up" data-reveal-delay="200">
@@ -79,7 +77,7 @@
           <span class="title-accent">على مزاجك</span>
         </h1>
 
-        <p class="hero-cinema-subtitle" data-reveal="fade-up" data-reveal-delay="300">
+                <p class="hero-cinema-subtitle" data-reveal="fade-up" data-reveal-delay="300">
           سعر مشوارك بالطريقة اللي تناسبك، واتفق مع السائقين مباشرة،<br />
           واركب بأمان وراحة في كل مكان في أسوان
         </p>
@@ -481,79 +479,70 @@
   <!-- =========================================================
        "تجربة سهلة وسريعة" (Dark Showcase with 3 App Mockups)
        ========================================================= -->
+    <!-- =========================================================
+       Experience Showcase Section: Single Car Showcase (User Request)
+       ========================================================= -->
+    <!-- =========================================================
+       Experience Showcase Section: Single Car Showcase (User Request)
+       ========================================================= -->
+    <!-- =========================================================
+       Experience Showcase Section: 3 Screens Passenger & 3 Screens Driver
+       ========================================================= -->
   <section class="experience-section" id="about">
     <div class="container">
-      <!-- 3 Pillars of Rukoob: Aswan, Cheap/Fair, 100% Egyptian -->
       <div class="showcase-header-center" data-reveal="fade-up">
-        <div class="section-tag-gold" style="margin-bottom: 14px;">
-          <span>مميزات وتجربة رُكوب</span>
+        <div class="badge-pill">
+          <span>شاشات التطبيق الحقيقية</span>
         </div>
-        <h2 class="exp-title" style="text-align: center; margin-bottom: 16px;">
-          تطبيق أسواني <span class="accent-gold">مصري 100%</span> يجمعنا
+        <h2 class="section-title">
+          بساطة وسرعة في كل <span class="text-accent">خطوة</span>
         </h2>
-        <p class="exp-subtitle" style="text-align: center; max-width: 680px; margin: 0 auto 36px;">
-          صُمم خصيصاً ليناسب شوارع ومعالم أسوان وأهلها الكرام — أوفر للراكب، وأعلى دخل للكابتن مع أقل عمولة في مصر (5%
-          فقط).
+        <p class="section-subtitle">
+          تصميم عصري فائق السلاسة تم بناؤه خصيصاً ليناسب ثقافة واحتياجات أهل أسوان وزوارها
         </p>
+      </div>
 
-        <!-- 3 Advantage Badges -->
-        <div class="pillars-badge-grid">
-          <div class="pillar-badge-item">
-            <div class="pillar-badge-icon">🏛️</div>
-            <div class="pillar-badge-title">من قلب أسوان لأهل أسوان</div>
-            <div class="pillar-badge-desc">معرفة دقيقة بكافة المعالم والشوارع والأحياء بأسوان</div>
-          </div>
-          <div class="pillar-badge-item">
-            <div class="pillar-badge-icon">💰</div>
-            <div class="pillar-badge-title">أوفر للراكب وأربح للكابتن</div>
-            <div class="pillar-badge-desc">حرية كاملة في تحديد وقبول الأسعار العادلة دون وسيط</div>
-          </div>
-          <div class="pillar-badge-item">
-            <div class="pillar-badge-icon">🇪🇬</div>
-            <div class="pillar-badge-title">100% مصري وطني</div>
-            <div class="pillar-badge-desc">بأيادي ومطوري أبناء النوبة وأسوان لخدمة مجتمعنا</div>
-          </div>
-        </div>
-
-        <!-- Switcher Tabs (Passenger vs Driver) -->
-        <div class="showcase-tabs-container">
-          <button class="showcase-tab-btn active" id="tabPassengerView" data-target="passengerView">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-              <circle cx="12" cy="7" r="4"></circle>
+      <!-- Segmented Control Tabs (Passenger / Driver) -->
+      <div class="showcase-tabs-container" data-reveal="fade-up" data-reveal-delay="100">
+        <div class="showcase-segmented-control" role="tablist">
+          <button class="showcase-tab-btn active" data-tab="passenger" data-target="passengerView" role="tab" aria-selected="true">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+              <circle cx="9" cy="7" r="4"></circle>
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
             </svg>
-            <span>تجربة الراكب (Passenger)</span>
+            <span>تجربة الراكب</span>
           </button>
-          <button class="showcase-tab-btn" id="tabDriverView" data-target="driverView">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <button class="showcase-tab-btn" data-tab="driver" data-target="driverView" role="tab" aria-selected="false">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
               <rect x="1" y="3" width="15" height="13"></rect>
               <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
               <circle cx="5.5" cy="18.5" r="2.5"></circle>
               <circle cx="18.5" cy="18.5" r="2.5"></circle>
             </svg>
-            <span>تجربة الكابتن (Driver)</span>
+            <span>تجربة الكابتن</span>
           </button>
         </div>
       </div>
 
-      <!-- Screens Showcase Wrapper -->
+      <!-- Dynamic Views Wrapper -->
       <div class="showcase-views-wrapper" data-reveal="fade-up" data-reveal-delay="150">
-
-        <!-- 1. Passenger View -->
+        <!-- 1. Passenger View (3 Screens) -->
         <div class="phones-view-panel active" id="passengerView">
           <div class="phones-showcase-row">
-            <!-- Passenger Screen 1: Landmarks & Pick Location -->
+            <!-- Passenger Screen 1: Search & Landmarks -->
             <div class="phone-showcase-item" data-screen-index="1">
-              <div class="phone-screen-tag">1. تحديد الانطلاق والمعالم</div>
+              <div class="phone-screen-tag">1. حدد وجهتك بسهولة</div>
               <div class="mini-phone">
                 <div class="mini-screen">
                   <img class="phone-showcase-image" src="assets/passenger-landmarks.jpg"
-                    alt="شاشة اختيار نقطة الانطلاق والمعالم في أسوان" />
+                    alt="شاشة البحث وتحديد الوجهة في تطبيق رُكوب" />
                 </div>
               </div>
               <div class="phone-caption">
-                <strong>معالم أسوان بضغطة زر</strong>
-                <span>اختر من معالم ومحطات أسوان أو موقعك عبر GPS</span>
+                <strong>واجهة سريعة وخفيفة</strong>
+                <span>البحث عن أهم معالم أسوان بنقرة واحدة بدون تعقيد</span>
               </div>
             </div>
 
@@ -601,7 +590,7 @@
             </div>
           </div>
 
-          <!-- Mobile Dots Pagination -->
+          <!-- Mobile Dots Pagination (3 Dots) -->
           <div class="showcase-mobile-dots">
             <span class="dot active" data-dot="1"></span>
             <span class="dot" data-dot="2"></span>
@@ -609,7 +598,7 @@
           </div>
         </div>
 
-        <!-- 2. Driver View -->
+        <!-- 2. Driver View (3 Screens) -->
         <div class="phones-view-panel" id="driverView" style="display: none;">
           <div class="phones-showcase-row">
             <!-- Driver Screen 1: Driver Home & Map -->
@@ -659,7 +648,7 @@
             </div>
           </div>
 
-          <!-- Mobile Dots Pagination -->
+          <!-- Mobile Dots Pagination (3 Dots) -->
           <div class="showcase-mobile-dots">
             <span class="dot active" data-dot="1"></span>
             <span class="dot" data-dot="2"></span>

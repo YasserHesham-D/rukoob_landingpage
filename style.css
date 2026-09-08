@@ -5,6 +5,38 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Amiri:wght@400;700&display=swap');
 
+/* =========================================================
+   Custom Scrollbar (#f2ebde)
+   ========================================================= */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0b141d;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #f2ebde !important;
+  border-radius: 8px;
+  border: 2px solid #0b141d;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #dfd4c3 !important;
+}
+
+html {
+  scrollbar-color: #f2ebde #0b141d;
+  scrollbar-width: thin;
+}
+
+* {
+  scrollbar-color: #f2ebde rgba(11, 20, 29, 0.5);
+}
+
+
 :root {
   /* Brand Color Palette — matched to the new RUKOOB logo (navy ribbon + olive road + ivory pin) */
   --primary-olive: #5f6939;
@@ -46,7 +78,7 @@
   --radius-md: 14px;
   --radius-lg: 22px;
   --radius-xl: 32px;
-  --radius-full: 9999px;
+  --radius-full: 20px;
 
   --shadow-sm: 0 2px 10px rgba(0, 0, 0, 0.04);
   --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.07);
@@ -115,11 +147,11 @@ button {
    ========================================================= */
 [data-reveal] {
   opacity: 0;
-  transform: translateY(35px);
-  filter: blur(6px);
-  transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
-    transform 0.9s cubic-bezier(0.16, 1, 0.3, 1),
-    filter 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateY(40px);
+  filter: blur(8px);
+  transition: opacity 1.8s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 1.8s cubic-bezier(0.16, 1, 0.3, 1),
+    filter 1.8s cubic-bezier(0.16, 1, 0.3, 1);
   will-change: opacity, transform, filter;
 }
 
@@ -135,31 +167,46 @@ button {
   transform: translateY(0) scale(0.96);
 }
 
+
+/* Hero Content Graceful Slow Fade-In on Page Load */
+.hero-cinema-content [data-reveal] {
+  animation: heroContentFadeIn 1.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.hero-cinema-content [data-reveal-delay="100"] { animation-delay: 0.25s; }
+.hero-cinema-content [data-reveal-delay="200"] { animation-delay: 0.5s; }
+.hero-cinema-content [data-reveal-delay="300"] { animation-delay: 0.75s; }
+.hero-cinema-content [data-reveal-delay="400"] { animation-delay: 1.0s; }
+.hero-cinema-content [data-reveal-delay="500"] { animation-delay: 1.25s; }
+
+@keyframes heroContentFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+    filter: blur(8px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
 [data-reveal].revealed {
   opacity: 1;
   transform: translateY(0) scale(1);
   filter: blur(0);
 }
 
-[data-reveal-delay="100"] {
-  transition-delay: 0.1s;
-}
+[data-reveal-delay="100"] { transition-delay: 0.25s; }
 
-[data-reveal-delay="200"] {
-  transition-delay: 0.2s;
-}
+[data-reveal-delay="200"] { transition-delay: 0.5s; }
 
-[data-reveal-delay="300"] {
-  transition-delay: 0.3s;
-}
+[data-reveal-delay="300"] { transition-delay: 0.75s; }
 
-[data-reveal-delay="400"] {
-  transition-delay: 0.4s;
-}
+[data-reveal-delay="400"] { transition-delay: 1.0s; }
 
-[data-reveal-delay="500"] {
-  transition-delay: 0.5s;
-}
+[data-reveal-delay="500"] { transition-delay: 1.25s; }
 
 /* =========================================================
    Theme Switcher Floating Banner
@@ -270,9 +317,7 @@ button {
   border-color: rgba(255, 255, 255, 0.35);
 }
 
-.site-header:not(.scrolled) .mobile-toggle span {
-  background-color: #ffffff;
-}
+.site-header:not(.scrolled) .mobile-toggle span { background-color: #f2ebde !important; }
 
 /* Brand Logo (Far Right in RTL) */
 .brand-logo {
@@ -431,13 +476,7 @@ button {
   align-items: center;
 }
 
-.mobile-toggle span {
-  width: 22px;
-  height: 2.5px;
-  background-color: var(--text-main);
-  border-radius: 2px;
-  transition: var(--transition-fast);
-}
+.mobile-toggle span { width: 22px; height: 2.5px; background-color: #f2ebde !important; border-radius: 2px; transition: var(--transition-fast); }
 
 /* =========================================================
    Immersive Full-Bleed Hero Section (Vita-Travel Photography Style)
@@ -2259,7 +2298,20 @@ button {
 }
 
 /* Responsive Styles for Mobile & Tablet */
+
+@keyframes cinematic-ken-burns-mobile {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.05); }
+}
+
 @media (max-width: 768px) {
+
+  /* Hero photo: ensure the RUKOOB car is clearly visible in mobile view */
+  .hero-cinema-bg {
+    background-position: 12% 85% !important;
+    animation: cinematic-ken-burns-mobile 24s ease-in-out infinite alternate !important;
+  }
+
   .pillars-badge-grid {
     grid-template-columns: 1fr;
     gap: 10px;
@@ -2536,9 +2588,7 @@ button {
     overflow: hidden;
   }
 
-  .nav-pill-wrapper:has(.nav-container.mobile-open) .mobile-toggle span {
-    background-color: #ffffff !important;
-  }
+  .nav-pill-wrapper:has(.nav-container.mobile-open) .mobile-toggle span { background-color: #f2ebde !important; }
 }
 
 @keyframes editorialMenuIn {
@@ -2919,59 +2969,1085 @@ button {
 
 
 /* =========================================================
-   Mobile View Custom Adjustments
-   1. Hamburger toggle color is always #ffffff
-   2. Hide 'Why Rukoob' (4 squares grid) in mobile view
-   3. Driver section photo stays as background bleed on left
+   Mobile View Enhancements & Car Visibility Across Photos
    ========================================================= */
-
-.mobile-toggle span {
-  background-color: #ffffff !important;
-}
-
-.site-header:not(.scrolled) .mobile-toggle span,
-.site-header.scrolled .mobile-toggle span,
-.nav-pill-wrapper:has(.nav-container.mobile-open) .mobile-toggle span {
-  background-color: #ffffff !important;
-}
-
 @media (max-width: 768px) {
-  /* Hide the 4 squares section (Why Rukoob) on mobile */
+  /* 1. Hero: Show Car Clearly without Text Congestion */
+  .hero-cinema-section {
+    padding-top: 100px !important;
+    padding-bottom: 50px !important;
+    min-height: 100svh !important;
+  }
+
+  .hero-cinema-bg {
+    background-position: 14% 92% !important;
+    animation: cinematic-ken-burns-mobile 25s ease-in-out infinite alternate !important;
+  }
+
+  .hero-cinema-content {
+    text-align: center !important;
+    max-width: 100% !important;
+    margin: 0 auto !important;
+    padding: 0 8px !important;
+  }
+
+  .hero-badge-pill {
+    display: inline-flex !important;
+    width: auto !important;
+    max-width: 94% !important;
+    justify-content: center !important;
+    text-align: center !important;
+    font-size: 12px !important;
+    line-height: 1.4 !important;
+    padding-bottom: 8px !important;
+    margin-bottom: 14px !important;
+  }
+
+  .hero-cinema-title {
+    font-size: clamp(28px, 7.5vw, 38px) !important;
+    line-height: 1.2 !important;
+    text-align: center !important;
+    margin-bottom: 12px !important;
+  }
+
+  .hero-cinema-subtitle {
+    font-size: 14px !important;
+    line-height: 1.55 !important;
+    text-align: center !important;
+    margin: 0 auto 18px auto !important;
+    max-width: 90% !important;
+  }
+
+  .hero-booking-bar {
+    width: 100% !important;
+    max-width: 360px !important;
+    margin: 0 auto 16px auto !important;
+    padding: 12px 16px !important;
+    border-radius: 16px !important;
+    gap: 4px !important;
+  }
+
+  .booking-field {
+    font-size: 13.5px !important;
+    padding: 5px 0 !important;
+  }
+
+  .booking-field-divider {
+    height: 14px !important;
+    margin: 2px auto !important;
+  }
+
+  .btn-hero-cta {
+    padding: 11px 18px !important;
+    font-size: 14px !important;
+    margin-top: 8px !important;
+    border-radius: 12px !important;
+  }
+
+  .hero-badges-row {
+    margin-top: 10px !important;
+  }
+
+  .hero-download-cta {
+    padding: 12px 24px !important;
+    font-size: 14.5px !important;
+  }
+
+  /* 2. Why Rukoob Section: Compact 2-column mobile grid */
   .why-rukoob-section,
   #why {
+    display: block !important;
+    padding: 50px 0 60px !important;
+  }
+
+  .why-features-grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 12px !important;
+  }
+
+  .why-feature-card {
+    padding: 18px 12px !important;
+    border-radius: 16px !important;
+    text-align: center !important;
+  }
+
+  .why-feature-card:not(:last-child)::after {
     display: none !important;
   }
 
-  /* Driver section photo on the left as background bleed */
+  .why-icon-wrapper {
+    width: 44px !important;
+    height: 44px !important;
+    margin: 0 auto 10px !important;
+  }
+
+  .why-card-title {
+    font-size: 14px !important;
+    margin-bottom: 5px !important;
+  }
+
+  .why-card-desc {
+    font-size: 11.5px !important;
+    line-height: 1.45 !important;
+  }
+
+  /* 3. Showcase Section: Phone cards preview with smooth snap */
+  .phones-showcase-row {
+    padding: 16px 20px !important;
+    gap: 16px !important;
+    scroll-snap-type: x mandatory !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+
+  .phone-showcase-item {
+    flex: 0 0 82% !important;
+    max-width: 290px !important;
+    scroll-snap-align: center !important;
+  }
+
+  .mini-phone {
+    max-width: 260px !important;
+    height: 520px !important;
+    margin: 0 auto !important;
+  }
+
+  /* 4. Driver Section: Clear, Prominent Car Photo in Mobile View */
   .driver-section {
     position: relative !important;
     overflow: hidden !important;
-    padding: 70px 0 90px !important;
+    padding: 50px 0 75px !important;
     background-color: var(--bg-sand-warm) !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
   }
 
   .driver-bleed-bg {
-    position: absolute !important;
-    top: 0 !important;
-    left: 0 !important;
-    bottom: 0 !important;
-    width: 48% !important;
-    height: 100% !important;
-    margin-bottom: 0 !important;
+    position: relative !important;
+    display: block !important;
+    top: auto !important;
+    left: auto !important;
+    bottom: auto !important;
+    width: calc(100% - 32px) !important;
+    max-width: 520px !important;
+    height: 240px !important;
+    margin: 0 auto 26px auto !important;
     background-image: url('assets/aswan-car-nile.png') !important;
-    background-position: left center !important;
+    background-position: center 60% !important;
     background-size: cover !important;
     background-repeat: no-repeat !important;
-    mask-image: linear-gradient(to right, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0) 100%) !important;
-    -webkit-mask-image: linear-gradient(to right, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0) 100%) !important;
-    opacity: 0.55 !important;
-    z-index: 1 !important;
-    pointer-events: none !important;
+    border-radius: 20px !important;
+    opacity: 1 !important;
+    mask-image: none !important;
+    -webkit-mask-image: none !important;
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.2), 0 0 0 1.5px rgba(95, 105, 57, 0.2) !important;
+    z-index: 3 !important;
+    pointer-events: auto !important;
   }
 
   .driver-content-wrapper {
     position: relative !important;
     z-index: 2 !important;
     margin-left: 0 !important;
+    width: 100% !important;
+    gap: 28px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+  }
+
+  .driver-center-info {
+    align-items: center !important;
+    text-align: center !important;
+    max-width: 480px !important;
+    margin: 0 auto !important;
+  }
+
+  .driver-section-desc {
+    text-align: center !important;
+    font-size: 14.5px !important;
+  }
+
+  .driver-perks-list {
+    max-width: 420px !important;
+    width: 100% !important;
+    margin: 0 auto !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .why-features-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .driver-bleed-bg {
+    height: 210px !important;
+    border-radius: 16px !important;
+  }
+}
+
+@keyframes cinematic-ken-burns-mobile {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.05); }
+}
+
+/* =========================================================
+   USER CUSTOMIZATION: #f2ebde Hamburger Color Everywhere
+   ========================================================= */
+.mobile-toggle span,
+.site-header .mobile-toggle span,
+.site-header.scrolled .mobile-toggle span,
+.site-header:not(.scrolled) .mobile-toggle span,
+.nav-pill-wrapper:has(.nav-container.mobile-open) .mobile-toggle span,
+.nav-actions .mobile-toggle span,
+.mobile-toggle.active span {
+  background-color: #f2ebde !important;
+}
+
+/* =========================================================
+   USER CUSTOMIZATION: Single Car Showcase Card (Image 2)
+   ========================================================= */
+.single-car-showcase-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 30px auto 0 auto;
+  max-width: 440px;
+  width: 100%;
+}
+
+.single-phone-mockup {
+  width: 290px;
+  height: 520px;
+  background: #0b141d;
+  border-radius: 36px;
+  padding: 10px;
+  border: 4px solid #1e293b;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(255, 255, 255, 0.08);
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.single-phone-mockup:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 32px 60px -12px rgba(0, 0, 0, 0.8), 0 0 25px rgba(217, 119, 6, 0.2);
+}
+
+.single-phone-screen {
+  width: 100%;
+  height: 100%;
+  border-radius: 28px;
+  overflow: hidden;
+  background: #0f172a;
+  position: relative;
+}
+
+.single-phone-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 60%;
+  display: block;
+}
+
+.single-car-caption {
+  text-align: center;
+  margin-top: 22px;
+  padding: 0 15px;
+}
+
+.single-car-title {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0 0 8px 0;
+  letter-spacing: -0.3px;
+}
+
+.single-car-subtitle {
+  font-size: 0.95rem;
+  color: #94a3b8;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* =========================================================
+   USER CUSTOMIZATION: Mobile Hero View (Exact to Image 1)
+   ========================================================= */
+@media (max-width: 768px) {
+  /* Header adjustments for mobile matching Image 1 */
+  .btn-primary-header {
+    display: inline-flex !important;
+    padding: 7px 15px !important;
+    font-size: 0.82rem !important;
+    border-radius: 9999px !important;
+    background: #232c1c !important;
+    color: #f2ebde !important;
+    border: 1px solid rgba(242, 235, 222, 0.25) !important;
+    font-weight: 700 !important;
+    align-items: center !important;
+    gap: 6px !important;
+  }
+  
+  .btn-download-icon {
+    stroke: #f2ebde !important;
+    width: 15px !important;
+    height: 15px !important;
+  }
+
+  .nav-actions {
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+  }
+
+  /* Hero adjustments for mobile matching Image 1 */
+  .hero-cinema-section {
+    min-height: 100vh !important;
+    min-height: 100dvh !important;
+    height: 100vh !important;
+    height: 100dvh !important;
+    padding-top: 75px !important;
+    padding-bottom: 20px !important;
+    position: relative !important;
+    overflow: hidden !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-start !important;
+  }
+
+  .hero-cinema-bg {
+    background-size: cover !important;
+    /* Exactly frames the car rear in the center bottom */
+    background-position: 5.5% 95% !important;
+    opacity: 1 !important;
+  }
+
+  .hero-cinema-overlay {
+    background: linear-gradient(
+      180deg,
+      rgba(15, 23, 42, 0.75) 0%,
+      rgba(15, 23, 42, 0.2) 40%,
+      rgba(15, 23, 42, 0.05) 60%,
+      rgba(11, 20, 29, 0.85) 100%
+    ) !important;
+  }
+
+  .hero-cinema-content {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    padding: 10px 16px 0 16px !important;
+    z-index: 10 !important;
+    width: 100% !important;
+    max-width: 420px !important;
+    margin: 0 auto !important;
+  }
+
+  .hero-badge-pill {
+    margin-bottom: 12px !important;
+    font-size: 0.75rem !important;
+    padding: 6px 14px !important;
+  }
+
+  .hero-cinema-title {
+    font-size: 2.35rem !important;
+    line-height: 1.25 !important;
+    margin-bottom: 10px !important;
+    color: #ffffff !important;
+  }
+
+  .hero-cinema-title .title-accent {
+    display: inline-block !important;
+    color: #a4af5a !important;
+  }
+
+  .hero-cinema-subtitle {
+    font-size: 0.88rem !important;
+    line-height: 1.55 !important;
+    margin-bottom: 16px !important;
+    color: #f2ebde !important;
+    opacity: 0.9 !important;
+  }
+
+  /* Hide booking bar on mobile to reveal the car and match Image 1 */
+  .hero-booking-bar {
+    display: none !important;
+  }
+
+  /* Big CTA button matching Image 1 */
+  .hero-badges-row {
+    margin-top: 4px !important;
+    width: 100% !important;
+    display: flex !important;
+    justify-content: center !important;
+  }
+
+  .hero-download-cta {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 8px !important;
+    width: 90% !important;
+    max-width: 310px !important;
+    padding: 13px 24px !important;
+    background: #8b934b !important;
+    color: #1a2315 !important;
+    font-weight: 800 !important;
+    font-size: 1.12rem !important;
+    border-radius: 9999px !important;
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.45) !important;
+    text-decoration: none !important;
+  }
+
+  .hero-download-cta svg,
+  .hero-download-cta-icon {
+    width: 20px !important;
+    height: 20px !important;
+    stroke: #1a2315 !important;
+    stroke-width: 2.6 !important;
+  }
+
+  /* Hide the wavy curve on mobile so the car is completely visible */
+  .curve-hero-bottom {
+    display: none !important;
+  }
+
+  /* Small vertical indicator line at center bottom matching Image 1 */
+  .hero-bottom-indicator {
+    position: absolute;
+    bottom: 14px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 18px;
+    background: rgba(242, 235, 222, 0.6);
+    border-radius: 2px;
+    z-index: 10;
+  }
+}
+
+
+/* ==========================================================================
+   USER MANDATORY STYLES: #f2ebde Hamburger + Exact Mobile Hero + Single Car Phone
+   ========================================================================== */
+
+/* Hamburger Color: #f2ebde everywhere */
+.mobile-toggle span,
+.site-header .mobile-toggle span,
+.site-header.scrolled .mobile-toggle span,
+.site-header:not(.scrolled) .mobile-toggle span,
+.site-header.scrolled .mobile-toggle.active span,
+.mobile-toggle.active span,
+.nav-actions .mobile-toggle span {
+  background-color: #f2ebde !important;
+}
+
+/* Single Car Showcase Phone Card (Image 2) */
+.single-car-showcase-container {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  margin: 32px auto 0 auto !important;
+  max-width: 420px !important;
+  width: 100% !important;
+  padding: 0 16px !important;
+}
+
+.single-phone-mockup {
+  width: 100% !important;
+  max-width: 295px !important;
+  height: 520px !important;
+  background: #0d1520 !important;
+  border-radius: 36px !important;
+  padding: 10px !important;
+  border: 4px solid #1e293b !important;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.75), 0 0 0 1px rgba(255, 255, 255, 0.08) !important;
+  position: relative !important;
+  overflow: hidden !important;
+  transition: transform 0.4s ease, box-shadow 0.4s ease !important;
+}
+
+.single-phone-mockup:hover {
+  transform: translateY(-6px) !important;
+  box-shadow: 0 32px 60px -12px rgba(0, 0, 0, 0.85), 0 0 25px rgba(217, 119, 6, 0.25) !important;
+}
+
+.single-phone-screen {
+  width: 100% !important;
+  height: 100% !important;
+  border-radius: 28px !important;
+  overflow: hidden !important;
+  position: relative !important;
+  background: #0a1017 !important;
+}
+
+.single-phone-img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center 60% !important;
+  display: block !important;
+}
+
+.single-car-caption {
+  text-align: center !important;
+  margin-top: 20px !important;
+  padding: 0 12px !important;
+}
+
+.single-car-title {
+  font-size: 1.35rem !important;
+  font-weight: 800 !important;
+  color: #ffffff !important;
+  margin: 0 0 8px 0 !important;
+  letter-spacing: -0.3px !important;
+}
+
+.single-car-subtitle {
+  font-size: 0.95rem !important;
+  color: #94a3b8 !important;
+  margin: 0 !important;
+  line-height: 1.55 !important;
+}
+
+/* Mobile Specific Refinements (Exact Match to Image 1) */
+@media (max-width: 768px) {
+  /* Header in Mobile */
+  .site-header {
+    padding: 10px 0 !important;
+  }
+
+  .nav-pill-wrapper {
+    padding: 6px 14px !important;
+    background: rgba(11, 20, 29, 0.75) !important;
+    backdrop-filter: blur(16px) !important;
+    -webkit-backdrop-filter: blur(16px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+  }
+
+  .btn-primary-header {
+    display: inline-flex !important;
+    padding: 6px 14px !important;
+    font-size: 0.8rem !important;
+    border-radius: 9999px !important;
+    background: #232c1c !important;
+    color: #f2ebde !important;
+    border: 1px solid rgba(242, 235, 222, 0.25) !important;
+    font-weight: 700 !important;
+    align-items: center !important;
+    gap: 6px !important;
+  }
+
+  .btn-download-icon {
+    stroke: #f2ebde !important;
+    width: 14px !important;
+    height: 14px !important;
+  }
+
+  .nav-actions {
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+  }
+
+  .brand-logo-img {
+    width: 38px !important;
+    height: 38px !important;
+  }
+
+  .logo-arabic {
+    font-size: 1.15rem !important;
+  }
+
+  .logo-english {
+    font-size: 0.65rem !important;
+  }
+
+  /* Hero Section in Mobile: Full Viewport with Car Centered at Bottom */
+  .hero-cinema-section {
+    min-height: 100vh !important;
+    min-height: 100dvh !important;
+    height: 100vh !important;
+    height: 100dvh !important;
+    padding-top: 75px !important;
+    padding-bottom: 25px !important;
+    position: relative !important;
+    overflow: hidden !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-start !important;
+  }
+
+  .hero-cinema-bg {
+    background-size: cover !important;
+    /* Exactly centers the car horizontally and frames it at the bottom */
+    background-position: 3.5% bottom !important;
+    opacity: 1 !important;
+  }
+
+  .hero-cinema-overlay {
+    background:linear-gradient(180deg, rgb(15 23 42 / 66%) 0%, rgb(15 23 42 / 70%) 35%, rgb(15 23 42 / 28%) 55%, rgba(11, 20, 29, 0.85) 100%) !important;
+  }
+
+  .hero-cinema-content {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    padding: 8px 16px 0 16px !important;
+    z-index: 10 !important;
+    width: 100% !important;
+    max-width: 420px !important;
+    margin: 85px auto !important;
+  }
+
+  .hero-badge-pill {
+    margin-bottom: 12px !important;
+    font-size: 0.76rem !important;
+    padding: 6px 14px !important;
+    color: #f2ebde !important;
+    border: 1px solid rgba(242, 235, 222, 0.2) !important;
+  }
+
+  .hero-cinema-title {
+    font-size: 2.35rem !important;
+    line-height: 1.25 !important;
+    margin-bottom: 10px !important;
+    color: #ffffff !important;
+  }
+
+  .hero-cinema-title .title-accent {
+    display: inline-block !important;
+    color: #a4af5a !important;
+  }
+
+  .hero-cinema-subtitle {
+    font-size: 0.88rem !important;
+    line-height: 1.55 !important;
+    margin-bottom: 18px !important;
+    color: #f2ebde !important;
+    opacity: 0.9 !important;
+  }
+
+  /* Booking bar is hidden on mobile to give full stage to the car */
+  .hero-booking-bar {
+    display: none !important;
+  }
+
+  /* Big CTA Download button matching Image 1 */
+  .hero-badges-row {
+    margin-top: 4px !important;
+    width: 100% !important;
+    display: flex !important;
+    justify-content: center !important;
+  }
+
+  .hero-download-cta {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 8px !important;
+    width: 90% !important;
+    max-width: 320px !important;
+    padding: 13px 26px !important;
+    background: #8b934b !important;
+    color: #1a2315 !important;
+    font-weight: 800 !important;
+    font-size: 1.12rem !important;
+    border-radius: 9999px !important;
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.45) !important;
+    text-decoration: none !important;
+    cursor: pointer !important;
+  }
+
+  .hero-download-cta svg,
+  .hero-download-cta-icon {
+    width: 20px !important;
+    height: 20px !important;
+    stroke: #1a2315 !important;
+    stroke-width: 2.6 !important;
+  }
+
+  /* Hide the wavy curve divider on mobile so car isn't hidden */
+  .curve-hero-bottom {
+    display: none !important;
+  }
+
+  /* Small vertical indicator line at center bottom matching Image 1 */
+  .hero-bottom-indicator {
+    position: absolute !important;
+    bottom: 12px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: 2px !important;
+    height: 16px !important;
+    background: rgba(242, 235, 222, 0.6) !important;
+    border-radius: 2px !important;
+    z-index: 10 !important;
+  }
+}
+
+
+/* ==========================================================================
+   USER CUSTOMIZATION: Transparent Navbar -> rgb(9 15 23) on Scroll
+   ========================================================================== */
+
+/* Header Base: Transparent at top */
+.site-header {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  z-index: 1000 !important;
+  padding: 16px 0 !important;
+  background-color: transparent !important;
+  transition: background-color 0.35s ease, padding 0.35s ease, box-shadow 0.35s ease !important;
+}
+
+.site-header .nav-pill-wrapper {
+  background: transparent !important;
+  border: 1px solid transparent !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  transition: all 0.35s ease !important;
+}
+
+/* Header Scrolled: Solid rgb(9, 15, 23) */
+.site-header.scrolled {
+  padding: 10px 0 !important;
+  background-color: rgb(9, 15, 23) !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+}
+
+.site-header.scrolled .nav-pill-wrapper {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+/* Desktop Navigation Link Colors in Scrolled / Unscrolled */
+.site-header:not(.scrolled) .nav-link {
+  color: #ffffff !important;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6) !important;
+}
+
+.site-header.scrolled .nav-link {
+  color: #cbd5e1 !important;
+}
+
+.site-header.scrolled .nav-link:hover,
+.site-header.scrolled .nav-link.active {
+  color: #ffffff !important;
+  background: rgba(255, 255, 255, 0.08) !important;
+}
+
+/* ==========================================================================
+   USER CUSTOMIZATION: Hero Typings & Photo Moved Left
+   ========================================================================== */
+
+/* Badge Rectangular Card matching photo */
+.hero-badge-pill {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+  background: rgba(255, 255, 255, 0.08) !important;
+  border: 1px solid rgba(255, 255, 255, 0.22) !important;
+  border-radius: 4px !important; /* rectangular with soft corners */
+  padding: 8px 18px !important;
+  font-size: 0.82rem !important;
+  font-weight: 700 !important;
+  color: #ffffff !important;
+  line-height: 1.45 !important;
+  margin-bottom: 16px !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25) !important;
+  max-width: 320px !important;
+}
+
+/* Title matching photo */
+.hero-cinema-title {
+  font-size: 2.65rem !important;
+  font-weight: 900 !important;
+  line-height: 1.25 !important;
+  color: #ffffff !important;
+  margin-bottom: 14px !important;
+  text-shadow: 0 4px 16px rgba(0, 0, 0, 0.6) !important;
+}
+
+.hero-cinema-title .title-accent {
+  display: inline-block !important;
+  color: #b5c566 !important; /* olive-lime accent */
+  font-weight: 900 !important;
+  text-shadow: 0 4px 16px rgba(0, 0, 0, 0.6) !important;
+}
+
+/* Subtitle matching photo */
+.hero-cinema-subtitle {
+  font-size: 0.94rem !important;
+  font-weight: 600 !important;
+  line-height: 1.65 !important;
+  color: #f2ebde !important;
+  margin-bottom: 22px !important;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7) !important;
+  opacity: 0.95 !important;
+}
+
+/* Big CTA Button matching photo */
+.hero-download-cta {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 10px !important;
+  width: 90% !important;
+  max-width: 310px !important;
+  padding: 13px 28px !important;
+  background: #84914c !important; /* olive green */
+  color: #172212 !important;
+  font-weight: 800 !important;
+  font-size: 1.15rem !important;
+  border-radius: 9999px !important;
+  border: 1px solid rgba(255, 255, 255, 0.25) !important;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.45) !important;
+  cursor: pointer !important;
+  text-decoration: none !important;
+}
+
+.hero-download-cta svg,
+.hero-download-cta-icon {
+  width: 20px !important;
+  height: 20px !important;
+  stroke: #172212 !important;
+  stroke-width: 2.6 !important;
+}
+
+/* Mobile View: Hero Background Moved Left a Bit */
+@media (max-width: 768px) {
+  .site-header {
+    padding: 10px 0 !important;
+  }
+  
+  .site-header:not(.scrolled) {
+    background-color: transparent !important;
+    border-bottom: none !important;
+    box-shadow: none !important;
+  }
+
+  .site-header.scrolled {
+    background-color: rgb(9, 15, 23) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5) !important;
+  }
+
+  .hero-cinema-bg {
+    background-size: cover !important;
+    /* Moved left a bit: from 3.5% to 8.5% to shift car & road left as in photo */
+    background-position: 8.5% bottom !important;
+    opacity: 1 !important;
+  }
+}
+
+
+/* ==========================================================================
+   USER EXACT FLOATING PILL NAVBAR DESIGN (Matching User Reference Image)
+   ========================================================================== */
+
+/* Fixed Header Container */
+.site-header {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  z-index: 1000 !important;
+  padding: 14px 0 !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  pointer-events: none !important;
+}
+
+.site-header .container {
+  pointer-events: auto !important;
+}
+
+/* The Floating Pill Wrapper - Exactly like user screenshot */
+.nav-pill-wrapper {
+  background: #0c131a !important;
+  background: rgba(12, 19, 26, 0.94) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.09) !important;
+  padding: 8px 18px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(255, 255, 255, 0.05) !important;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  max-width: 1140px !important;
+  margin: 0 auto !important;
+}
+
+.site-header.scrolled {
+  padding: 10px 0 !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.site-header.scrolled .nav-pill-wrapper {
+  background: #090f17 !important;
+  background: rgba(9, 15, 23, 0.98) !important;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.7) !important;
+}
+
+/* Brand Logo (Right side in RTL) */
+.brand-logo {
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  text-decoration: none !important;
+}
+
+.brand-logo-img {
+  width: 40px !important;
+  height: 40px !important;
+  object-fit: contain !important;
+}
+
+.logo-text-group {
+  display: flex !important;
+  flex-direction: column !important;
+  line-height: 1.15 !important;
+}
+
+.logo-arabic {
+  font-size: 1.28rem !important;
+  font-weight: 900 !important;
+  color: #9cb050 !important; /* Gold/Olive accent matching image */
+}
+
+.logo-english {
+  font-size: 0.65rem !important;
+  font-weight: 800 !important;
+  letter-spacing: 1.5px !important;
+  color: #9cb050 !important;
+}
+
+/* Center Nav Menu Links */
+.nav-menu {
+  display: flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  list-style: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.nav-link {
+  font-size: 0.92rem !important;
+  font-weight: 600 !important;
+  color: #ffffff !important;
+  padding: 7px 14px !important;
+  border-radius: 9999px !important;
+  text-decoration: none !important;
+  transition: all 0.25s ease !important;
+  white-space: nowrap !important;
+}
+
+.nav-link:hover {
+  color: #9cb050 !important;
+  background: rgba(255, 255, 255, 0.06) !important;
+}
+
+/* Active Link Pill: Dark olive rounded pill matching image */
+.nav-link.active {
+  background: #1e281a !important;
+  color: #9cb050 !important;
+  border: 1px solid rgba(156, 176, 80, 0.35) !important;
+  border-radius: 9999px !important;
+  padding: 7px 18px !important;
+  font-weight: 700 !important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* CTA Download Button (Left side in RTL) - Dark olive pill gradient matching image */
+.btn-primary-header {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  padding: 8px 20px !important;
+  font-size: 0.88rem !important;
+  font-weight: 800 !important;
+  color: #ffffff !important;
+  background: linear-gradient(135deg, #3d4a2b, #252e1a) !important;
+  border: 1px solid rgba(156, 176, 80, 0.45) !important;
+  border-radius: 9999px !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.15) !important;
+  text-decoration: none !important;
+  transition: all 0.25s ease !important;
+  white-space: nowrap !important;
+}
+
+.btn-primary-header:hover {
+  background: linear-gradient(135deg, #4c5c35, #2e3920) !important;
+  border-color: rgba(156, 176, 80, 0.7) !important;
+  transform: translateY(-1px) !important;
+}
+
+.btn-download-icon {
+  stroke: #ffffff !important;
+  width: 16px !important;
+  height: 16px !important;
+}
+
+/* Hamburger Toggle */
+.mobile-toggle span {
+  background-color: #f2ebde !important;
+}
+
+/* Mobile floating pill layout */
+@media (max-width: 768px) {
+  .site-header {
+    padding: 10px 0 !important;
+  }
+
+  .nav-pill-wrapper {
+    padding: 6px 14px !important;
+    border-radius: 9999px !important;
+    margin: 0 10px !important;
+  }
+
+  .btn-primary-header {
+    padding: 6px 14px !important;
+    font-size: 0.8rem !important;
+  }
+
+  .brand-logo-img {
+    width: 36px !important;
+    height: 36px !important;
+  }
+
+  .logo-arabic {
+    font-size: 1.15rem !important;
+  }
+
+  .logo-english {
+    font-size: 0.62rem !important;
   }
 }

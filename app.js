@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let lenis;
   if (typeof Lenis !== 'undefined') {
     lenis = new Lenis({
-      duration: 1.25,
+      duration: 1.65,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       orientation: 'vertical',
       gestureOrientation: 'vertical',
@@ -27,7 +27,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // 2. Floating Navbar Scroll Blur & Transparency
   const header = document.querySelector('.site-header');
-  window.addEventListener('scroll', () => {
+  const updateHeaderOnScroll = () => {
+    const scrollY = typeof lenis !== 'undefined' && lenis ? lenis.scroll : window.scrollY;
+    if (scrollY > 20) {
+      header?.classList.add('scrolled');
+    } else {
+      header?.classList.remove('scrolled');
+    }
+  };
+  if (typeof lenis !== 'undefined' && lenis) {
+    lenis.on('scroll', updateHeaderOnScroll);
+  }
+  window.addEventListener('scroll', updateHeaderOnScroll);
+  // Initial check
+  updateHeaderOnScroll();
+  window.addEventListener('scroll_old_disabled', () => {
     if (window.scrollY > 30) {
       header?.classList.add('scrolled');
     } else {
@@ -64,12 +78,25 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     {
       root: null,
-      rootMargin: '0px 0px -50px 0px',
+      rootMargin: '0px 0px -40px 0px',
       threshold: 0.05,
     }
   );
 
   revealElements.forEach((el) => revealObserver.observe(el));
+
+  // Instantly reveal elements in initial viewport so above-the-fold content appears smoothly
+  function checkAboveTheFold() {
+    revealElements.forEach((el) => {
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight && rect.bottom > 0) {
+        el.classList.add('revealed');
+      }
+    });
+  }
+  checkAboveTheFold();
+  window.addEventListener('load', checkAboveTheFold);
+  setTimeout(checkAboveTheFold, 80);
 
   // 4. QR Code Dynamic Generation & Smart Device Detection
   let qrCodeGenerated = false;
