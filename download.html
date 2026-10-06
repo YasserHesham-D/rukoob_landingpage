@@ -320,12 +320,62 @@
         return 'desktop';
       }
 
+      const urlParams = new URLSearchParams(window.location.search);
+      const isUpdate = urlParams.get('update') === 'true' || urlParams.get('mode') === 'update';
       const os = detectDevice();
       const container = document.getElementById('dynamicContent');
       const apkUrl = 'assets/app-release.apk';
       const webAppUrl = 'app/index.html';
 
       if (os === 'android') {
+        if (isUpdate) {
+          container.innerHTML = `
+            <div class="os-badge" style="background: rgba(95, 105, 57, 0.35); border-color: #d4a373; color: #f7f3ea;">
+              <span class="pulse-icon">🚀</span>
+              <span>تحديث جديد متاح (Update v1.1.0)</span>
+            </div>
+            <h2 class="status-title">جاري تحميل تحديث تطبيق رُكوب... 🚀</h2>
+            <p class="status-desc" style="color: #e2e8f0; font-size: 14.5px;">
+              يتم الآن تنزيل ملف التحديث فقط لهاتفك. سيتم تثبيت التحديث مباشرة فوق تطبيقك الحالي مع الاحتفاظ بكافة بياناتك وحسابك دون الحاجة لحذف التطبيق.
+            </p>
+
+            <a href="${apkUrl}" download="rukoob-update.apk" id="directDownloadBtn" class="btn-main-download">
+              <svg class="pulse-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 3v13M6 11l6 6 6-6M4 20h16"/>
+              </svg>
+              <span>تحميل التحديث الآن (تحديث فقط)</span>
+            </a>
+
+            <div class="guide-box">
+              <div class="guide-title">
+                <span>✨</span>
+                <span>خطوات تثبيت التحديث بسهولة:</span>
+              </div>
+              <div class="guide-step">
+                <span class="step-num">1</span>
+                <span>افتح ملف التحديث <strong>rukoob-update.apk</strong> من قائمة التحميلات أو شريط الإشعارات.</span>
+              </div>
+              <div class="guide-step">
+                <span class="step-num">2</span>
+                <span>اضغط <strong>"تحديث" (Update)</strong> عند ظهور نافذة التثبيت (سيتم التحديث مع الاحتفاظ بكافة بياناتك وحسابك).</span>
+              </div>
+              <div class="guide-step">
+                <span class="step-num">3</span>
+                <span>افتح التطبيق واستمتع بالميزات المحسنة ودقة الـ GPS الفائقة!</span>
+              </div>
+            </div>
+          `;
+
+          setTimeout(() => {
+            const dlLink = document.createElement('a');
+            dlLink.href = apkUrl;
+            dlLink.download = 'rukoob-update.apk';
+            document.body.appendChild(dlLink);
+            dlLink.click();
+            document.body.removeChild(dlLink);
+          }, 600);
+          return;
+        }
         container.innerHTML = `
           <div class="os-badge">
             <span>🤖</span>
