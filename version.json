@@ -1,8 +1,8 @@
-{
+﻿{
     "version":  "0.0.1",
     "notesEn":  "• Driver arrival double alert sound and notification\n• Driver completed rides counter on profile and offers\n• Quick demo login for 4 passengers and 4 captains\n• Performance enhancements and bug fixes",
     "downloadUrl":  "https://yasserhesham-d.github.io/rukoob_landingpage/download.html?update=true",
     "notesAr":  "• تنبيه وإشعار وصول الكابتن المزدوج لموقع الراكب\n• حساب وعرض عدد رحلات الكابتن في الملف الشخصي وعروض الرحلات\n• تسجيل الدخول السريع التجريبي للركاب والكباتن\n• تحسينات عامة في الأداء واستقرار النظام",
-    "releaseDate":  "2026-10-07T18:44:01Z",
-    "buildNumber":  2
+    "releaseDate":  "2026-10-07T21:37:58Z",
+    "buildNumber":  1
 }
